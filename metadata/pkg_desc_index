@@ -1,0 +1,17 @@
+app-arch/lzfse 1.0: LZFSE compression utilities
+media-libs/alsa-ucm-conf-asahi 5.0: ALSA ucm configuration files for Apple silicon devices
+media-libs/asahi-audio 1.8: PipeWire/WirePlumber configuration files for Apple Silicon
+media-libs/bankstown-lv2 1.1.0: A barebones, fast LV2 bass enhancement plugin
+media-libs/mesa 24.1.0_pre20240228-r1: OpenGL-like graphic library for Linux
+media-libs/widevine-installer 0.1-r2: Widevine installer for AArch64 systems
+sys-apps/asahi-configs 1.0: Asahi Linux configurations
+sys-apps/asahi-meta 2-r6: Metapackage for the Asahi support packages
+sys-apps/asahi-nvram-meta 0.1: Metapackage for asahi-nvram modules
+sys-apps/asahi-scripts 20240411 20240411-r1: Apple Silicon support scripts
+sys-apps/speakersafetyd 0.1.9-r1: Speaker protection daemon for embedded Linux systems
+sys-boot/m1n1 1.4.11: Apple Silicon bootloader and experimentation playground
+sys-boot/u-boot 2023.07.02_p4-r1: Asahi Linux fork of Das U-Boot
+sys-firmware/asahi-firmware 0.6.25-r1: Asahi FW extraction script
+sys-kernel/asahi-kernel 6.6.0_p16-r2: Asahi Linux kernel sources
+virtual/dist-kernel 6.6.0_p16: Virtual to depend on any Distribution Kernel
+virtual/linux-sources 3-r6: Virtual for Linux kernel sources
