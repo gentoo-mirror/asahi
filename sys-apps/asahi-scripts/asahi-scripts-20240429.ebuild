@@ -8,11 +8,7 @@ HOMEPAGE="https://asahilinux.org/"
 SRC_URI="https://github.com/AsahiLinux/${PN}/archive/refs/tags/${PV}.tar.gz -> ${PN}-${PV}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="arm64"
-
-PATCHES=("${FILESDIR}/makefile.patch"
-	"${FILESDIR}/update-m1n1-dtbs.patch"
-	)
+KEYWORDS="~arm64"
 
 BDEPEND="
 	dev-build/make"
@@ -26,8 +22,11 @@ src_compile() {
 }
 
 src_install() {
-	default
 	emake DESTDIR="${D}" PREFIX="/usr" SYS_PREFIX="" install-dracut
+
+	# install gentoo sys config
+	insinto /etc/default
+	newins "${FILESDIR}"/update-m1n1.gentoo.conf update-m1n1
 }
 
 pkg_postinst() {
