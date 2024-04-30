@@ -7,20 +7,20 @@ DESCRIPTION="PipeWire/WirePlumber configuration files for Apple Silicon"
 HOMEPAGE="https://github.com/AsahiLinux/asahi-audio"
 SRC_URI="https://github.com/AsahiLinux/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${PN}-${PV}.tar.gz"
 LICENSE="MIT"
-SLOT="0/1.0"
+SLOT="0/2.0"
 
-KEYWORDS="arm64"
+KEYWORDS="~arm64"
 
 RDEPEND="
-	>=media-video/pipewire-0.3.85[extra,lv2,sound-server]
-	media-video/wireplumber:0/0.4
+	>=media-video/pipewire-1.0.2:0/0.5[extra,lv2,sound-server]
+	media-video/wireplumber:0/0.5
 	|| (
 		>=sys-kernel/asahi-sources-6.6.0_p11
 		>=sys-kernel/asahi-kernel-6.6.0_p11
 	   )
 	>=media-libs/alsa-ucm-conf-asahi-5.0
 	>=media-libs/lsp-plugins-1.2.6[lv2]
-	>=media-libs/bankstown-lv2-1.0.3
+	>=media-libs/bankstown-lv2-1.1.0
 	sys-apps/speakersafetyd
 "
 DEPEND="
