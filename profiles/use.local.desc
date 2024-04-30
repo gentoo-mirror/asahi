@@ -17,6 +17,22 @@ media-libs/mesa:vulkan-overlay - Build vulkan-overlay-layer which displays Frame
 media-libs/mesa:wayland - Enable support for dev-libs/wayland
 media-libs/mesa:xa - Enable the XA (X Acceleration) API for Gallium3D.
 media-libs/mesa:zink - Enable the Zink OpenGL-over-Vulkan Gallium driver
+media-video/pipewire:X - Enable audible bell for X11
+media-video/pipewire:echo-cancel - Enable WebRTC-based echo canceller via media-libs/webrtc-audio-processing
+media-video/pipewire:extra - Build pw-cat/pw-play/pw-record
+media-video/pipewire:flatpak - Enable Flatpak support
+media-video/pipewire:gsettings - Use gsettings (dev-libs/glib) to read/save used modules (useful for e.g. media-sound/paprefs
+media-video/pipewire:jack-client - Install a plugin for running PipeWire as a JACK client
+media-video/pipewire:jack-sdk - Use PipeWire as JACK replacement
+media-video/pipewire:liblc3 - Allow loading LC3 plugins via media-sound/liblc3
+media-video/pipewire:lv2 - Allow loading LV2 plugins via media-libs/lv2
+media-video/pipewire:modemmanager - Combined with USE=bluetooth, allows PipeWire to perform telephony on mobile devices.
+media-video/pipewire:pipewire-alsa - Replace PulseAudio's ALSA plugin with PipeWire's plugin
+media-video/pipewire:roc - Enable roc support for real-time audio streaming over the network, using media-libs/roc-toolkit. See https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Network#roc
+media-video/pipewire:sound-server - Provide sound server using ALSA and bluetooth devices
+media-video/pipewire:ssl - Enable raop-sink support (needs dev-libs/openssl)
+media-video/pipewire:system-service - Install systemd unit files for running as a system service. Not recommended.
+media-video/wireplumber:system-service - Install systemd unit files for running as a system service. Not recommended.
 sys-apps/asahi-meta:audio - Pull in media-libs/asahi-audio and its dependencies
 sys-apps/asahi-meta:kernel - Build sys-kernel/asahi-kernel
 sys-apps/asahi-meta:mesa - Pull in media-libs/mesa with VIDEO_CARDS="asahi"
