@@ -3,7 +3,7 @@
 
 EAPI=8
 
-LLVM_COMPAT=( {15..18} )
+LLVM_COMPAT=( {17..18} )
 LLVM_OPTIONAL=1
 PYTHON_COMPAT=( python3_{10..12} )
 
@@ -20,10 +20,10 @@ HOMEPAGE="https://www.mesa3d.org/ https://mesa.freedesktop.org/"
 SRC_URI="https://gitlab.freedesktop.org/asahi/mesa/-/archive/asahi-${MY_PV}/mesa-asahi-${MY_PV}.tar.gz"
 S="${WORKDIR}/mesa-asahi-${MY_PV}"
 
-KEYWORDS="arm64"
-
 LICENSE="MIT SGI-B-2.0"
 SLOT="0"
+
+KEYWORDS="arm64"
 
 RADEON_CARDS="r300 r600 radeon radeonsi"
 VIDEO_CARDS="${RADEON_CARDS} asahi d3d12 freedreno intel lavapipe lima nouveau panfrost v3d vc4 virgl vivante vmware"
@@ -104,7 +104,7 @@ RDEPEND="
 		>=x11-libs/libxshmfence-1.1[${MULTILIB_USEDEP}]
 		>=x11-libs/libXext-1.3.2[${MULTILIB_USEDEP}]
 		>=x11-libs/libXxf86vm-1.1.3[${MULTILIB_USEDEP}]
-		>=x11-libs/libxcb-1.17:=[${MULTILIB_USEDEP}]
+		>=x11-libs/libxcb-1.16:=[${MULTILIB_USEDEP}]
 		x11-libs/libXfixes[${MULTILIB_USEDEP}]
 		x11-libs/xcb-util-keysyms[${MULTILIB_USEDEP}]
 	)
@@ -123,7 +123,7 @@ RDEPEND="${RDEPEND}
 DEPEND="${RDEPEND}
 	video_cards_d3d12? ( >=dev-util/directx-headers-1.613.0[${MULTILIB_USEDEP}] )
 	valgrind? ( dev-debug/valgrind )
-	wayland? ( >=dev-libs/wayland-protocols-1.34 )
+	wayland? ( >=dev-libs/wayland-protocols-1.33 )
 	X? (
 		x11-libs/libXrandr[${MULTILIB_USEDEP}]
 		x11-base/xorg-proto
