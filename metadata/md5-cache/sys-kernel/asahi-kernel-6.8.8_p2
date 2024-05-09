@@ -7,7 +7,7 @@ HOMEPAGE=https://asahilinux.org
 IDEPEND=!initramfs? ( >=sys-kernel/installkernel-14 ) initramfs? ( >=sys-kernel/installkernel-14[dracut(-)] )
 INHERIT=kernel-build
 IUSE=debug savedconfig +initramfs test +strip
-KEYWORDS=~arm64
+KEYWORDS=arm64
 LICENSE=GPL-2
 PDEPEND=~virtual/dist-kernel-6.8.8_p2
 RDEPEND=virtual/libelf
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test ) test? ( userpriv ) arm? ( test )
 SLOT=6.8.8_p2
 SRC_URI=https://github.com/AsahiLinux/linux/archive/refs/tags/asahi-6.8.8-2.tar.gz -> linux-asahi-6.8.8-2.tar.gz https://github.com/projg2/gentoo-kernel-config/archive/g11.tar.gz -> gentoo-kernel-config-g11.tar.gz https://copr-dist-git.fedorainfracloud.org/cgit/@asahi/kernel/kernel.git/plain/kernel-aarch64-16k-fedora.config?id=647ffd915dc8351fd69790ee708b1ae8638ccc95 -> kernel-aarch64-16k-fedora.config-6.8.7-402-gentoo
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	e527bb25fc6ab8bb127b889b8f62500a	python-any-r1	f5169813d1619761b459800587005fd2	portability	225656ad6c6594fe3b0187bdd50707fb	savedconfig	8b5f9d995a970e49cd427c55d5840285	dist-kernel-utils	145861da258122cbba5240a850f1a5e8	mount-boot	3945d351ee3192381911f938f4ee527a	kernel-install	8b3f309ac423799839f1fb3253b473b8	kernel-build	99eb00d7450b05352eb000bfb702db53
-_md5_=f720cacd2b29be1245d180e568f38f97
+_md5_=76b86b81045ee1e9670f6982106d7456
