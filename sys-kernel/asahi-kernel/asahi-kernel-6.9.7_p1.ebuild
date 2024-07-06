@@ -9,7 +9,7 @@ K_NODRYRUN="1"
 inherit kernel-build
 
 MY_P=linux-${PV%.*}
-GENPATCHES_P="genpatches-$(ver_cut 1-2)-12"
+GENPATCHES_P="genpatches-$(ver_cut 1-2)-8"
 
 if [[ ${PV} != ${PV/_rc} ]] ; then
 	# $PV is expected to be of following form: 6.0_rc5_p1
@@ -25,23 +25,23 @@ else
 	fi
 fi
 
-PREV_ASAHI_TAG="asahi-${MY_BASE}-6"
+# BASE_ASAHI_TAG is the first used TAG of specific release, i.e. usually
+# the first tag of a linux 6.x or linux stable 6.x.y release
+BASE_ASAHI_TAG="asahi-${MY_BASE}-1"
 ASAHI_TAG="asahi-${MY_BASE}-${MY_TAG}"
 
-CONFIG_VER=6.8.9-402-gentoo
+CONFIG_VER=6.9.6-400-gentoo
 GENTOO_CONFIG_VER=g13
 FEDORA_CONFIG_DISTGIT="copr-dist-git.fedorainfracloud.org/cgit/@asahi/kernel"
 # FEDORA_CONFIG_DISTGIT="copr-dist-git.fedorainfracloud.org/cgit/ngompa/fedora-asahi-dev"
-FEDORA_CONFIG_SHA1=82a221a3043efc2022d39f532e13535f183661ca
+FEDORA_CONFIG_SHA1=6c6a304ceb2b4c42cbc4d6d7a935353516ff99d9
 
 DESCRIPTION="Asahi Linux kernel sources"
 HOMEPAGE="https://asahilinux.org"
 SRC_URI="
     https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
-    https://github.com/AsahiLinux/linux/compare/v${MY_BASE}...${PREV_ASAHI_TAG}.patch
-        -> linux-${PREV_ASAHI_TAG}.patch
-    https://github.com/AsahiLinux/linux/compare/${PREV_ASAHI_TAG}...${ASAHI_TAG}.patch
-        -> linux-${PREV_ASAHI_TAG}..${ASAHI_TAG}.patch
+    https://github.com/AsahiLinux/linux/compare/v${MY_BASE}...${BASE_ASAHI_TAG}.patch
+        -> linux-${BASE_ASAHI_TAG}.patch
     https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.base.tar.xz
     https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.extras.tar.xz
     https://github.com/projg2/gentoo-kernel-config/archive/${GENTOO_CONFIG_VER}.tar.gz
@@ -53,7 +53,7 @@ SRC_URI="
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
-KEYWORDS="arm64"
+KEYWORDS="~arm64"
 
 IUSE="debug"
 
@@ -83,11 +83,8 @@ src_prepare() {
     local PATCHES=(
         # meh, genpatches have no directory
         "${WORKDIR}"/*.patch
-        "${FILESDIR}/asahi-kernel-6.8.2_revert_spi_stable_asahi.patch"
-        "${DISTDIR}/linux-${PREV_ASAHI_TAG}.patch"
-        "${DISTDIR}/linux-${PREV_ASAHI_TAG}..${ASAHI_TAG}.patch"
-        "${FILESDIR}/${PN}-$(ver_cut 1-2)-config-gentoo-Drop-RANDSTRUCT-from-GENTOO_KERNEL_SEL.patch"
-		"${FILESDIR}/${PN}-$(ver_cut 1-2)-enable-speakers.patch"
+        "${DISTDIR}/linux-${BASE_ASAHI_TAG}.patch"
+        "${FILESDIR}/${PN}-6.8-config-gentoo-Drop-RANDSTRUCT-from-GENTOO_KERNEL_SEL.patch"
     )
 	default
 
@@ -114,11 +111,11 @@ src_prepare() {
 
 	# deselect all non APPLE arm64 ARCHs
 	merge_configs+=(
-		"${FILESDIR}"/linux-$(ver_cut 1-2)_arm64_deselect_non_apple_arch.config
+		"${FILESDIR}"/linux-6.8_arm64_deselect_non_apple_arch.config
 	)
 	# adjust base config for Apple silicon systems
 	merge_configs+=(
-		"${FILESDIR}"/linux-$(ver_cut 1-2)_arch_apple_overrides.config
+		"${FILESDIR}"/linux-6.8_arch_apple_overrides.config
 	)
 
 	kernel-build_merge_configs "${merge_configs[@]}"
