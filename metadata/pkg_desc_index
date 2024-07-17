@@ -3,7 +3,7 @@ media-libs/alsa-ucm-conf-asahi 5.0: ALSA ucm configuration files for Apple silic
 media-libs/asahi-audio 1.8 2.2: PipeWire/WirePlumber configuration files for Apple Silicon
 media-libs/bankstown-lv2 1.1.0: A barebones, fast LV2 bass enhancement plugin
 media-libs/mesa 24.1.0_pre20240228-r2 24.2.0_pre20240527: OpenGL-like graphic library for Linux
-media-libs/mesa-asahi-flatpak 24.2.0_pre20240527: Asahi OpenGL Extension for Flatpak
+media-libs/mesa-asahi-flatpak 24.2.0_pre20240527-r1: Asahi OpenGL Extension for Flatpak
 media-libs/widevine-installer 0.1-r2: Widevine installer for AArch64 systems
 sys-apps/asahi-configs 1.0: Asahi Linux configurations
 sys-apps/asahi-meta 2-r8: Metapackage for the Asahi support packages
