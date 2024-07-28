@@ -23,7 +23,7 @@ S="${WORKDIR}/mesa-asahi-${MY_PV}"
 LICENSE="MIT SGI-B-2.0"
 SLOT="0"
 
-KEYWORDS="arm64"
+KEYWORDS="~arm64"
 
 RADEON_CARDS="r300 r600 radeon radeonsi"
 VIDEO_CARDS="${RADEON_CARDS} asahi d3d12 freedreno intel lavapipe lima nouveau panfrost v3d vc4 virgl vivante vmware"
@@ -123,7 +123,7 @@ RDEPEND="${RDEPEND}
 DEPEND="${RDEPEND}
 	video_cards_d3d12? ( >=dev-util/directx-headers-1.613.0[${MULTILIB_USEDEP}] )
 	valgrind? ( dev-debug/valgrind )
-	wayland? ( >=dev-libs/wayland-protocols-1.33 )
+	wayland? ( >=dev-libs/wayland-protocols-1.34 )
 	X? (
 		x11-libs/libXrandr[${MULTILIB_USEDEP}]
 		x11-base/xorg-proto
@@ -134,7 +134,7 @@ BDEPEND="
 	opencl? (
 		>=virtual/rust-1.62.0
 		>=dev-util/bindgen-0.58.0
-		>=dev-build/meson-1.3.1
+		>=dev-build/meson-1.4.0
 	)
 	app-alternatives/yacc
 	app-alternatives/lex
@@ -416,4 +416,8 @@ vulkan_enable() {
 		shift
 		VULKAN_DRIVERS+=("$@")
 	fi
+}
+
+pkg_postinst() {
+        einfo "${MY_P} requires asahi-kernel / asahi-sources 6.9.9_p1 or later."
 }
