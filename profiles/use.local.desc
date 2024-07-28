@@ -29,3 +29,5 @@ sys-apps/asahi-nvram-meta:raw - Enable raw NVRAM reading with sys-apps/asahi-nvr
 sys-apps/asahi-nvram-meta:wifi - Pull in net-misc/asahi-wifisync
 sys-boot/m1n1:clang - Build with the Clang/LLVM toolchain
 sys-kernel/asahi-kernel:initramfs - Create an initramfs
+sys-kernel/asahi-sources:rust - Pull in the Rust For Linux dependencies
+sys-kernel/asahi-sources:symlink - Automatically symlink the kernel sources to /usr/src/linux
