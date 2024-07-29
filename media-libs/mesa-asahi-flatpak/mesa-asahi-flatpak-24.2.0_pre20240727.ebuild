@@ -12,11 +12,11 @@ HOMEPAGE="https://asahilinux.org https://flatpak.org"
 
 SRC_URI="
 2308? (
-	https://download.copr.fedorainfracloud.org/results/@asahi/flatpak/fedora-40-aarch64/07738028-mesa-asahi-23.08-flatpak/mesa-asahi-23.08-flatpak-24.2.0~asahipre20240527-2.aarch64.rpm  -> ${P}-2308.rpm
+	https://download.copr.fedorainfracloud.org/results/@asahi/flatpak/fedora-40-aarch64/07799255-mesa-asahi-23.08-flatpak/mesa-asahi-23.08-flatpak-24.2.0~asahipre20240727-1.aarch64.rpm  -> ${P}-2308.rpm
 )
 
 2208? (
-	https://download.copr.fedorainfracloud.org/results/@asahi/flatpak/fedora-40-aarch64/07738029-mesa-asahi-22.08-flatpak/mesa-asahi-22.08-flatpak-24.2.0~asahipre20240527-2.aarch64.rpm -> ${P}-2208.rpm
+	https://download.copr.fedorainfracloud.org/results/@asahi/flatpak/fedora-40-aarch64/07799256-mesa-asahi-22.08-flatpak/mesa-asahi-22.08-flatpak-24.2.0~asahipre20240727-1.aarch64.rpm -> ${P}-2208.rpm
 )
 "
 
@@ -25,13 +25,14 @@ S="${WORKDIR}"
 LICENSE="MIT SGI-B-2.0"
 SLOT="0"
 
-KEYWORDS="arm64"
+KEYWORDS="~arm64"
 
 IUSE="+2208 +2308"
 REQUIRED_USE="|| ( 2208 2308 )"
 
 RDEPEND="
 	sys-apps/flatpak
+	=media-libs/mesa-${PV}
 "
 
 DEPEND="${RDEPEND}
