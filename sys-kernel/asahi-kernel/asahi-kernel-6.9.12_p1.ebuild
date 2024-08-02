@@ -9,7 +9,7 @@ K_NODRYRUN="1"
 inherit kernel-build
 
 MY_P=linux-${PV%.*}
-GENPATCHES_P="genpatches-$(ver_cut 1-2)-8"
+GENPATCHES_P="genpatches-$(ver_cut 1-2)-13"
 
 if [[ ${PV} != ${PV/_rc} ]] ; then
 	# $PV is expected to be of following form: 6.0_rc5_p1
@@ -27,21 +27,20 @@ fi
 
 # BASE_ASAHI_TAG is the first used TAG of specific release, i.e. usually
 # the first tag of a linux 6.x or linux stable 6.x.y release
-BASE_ASAHI_TAG="asahi-${MY_BASE}-1"
 ASAHI_TAG="asahi-${MY_BASE}-${MY_TAG}"
 
-CONFIG_VER=6.9.6-400-gentoo
+CONFIG_VER=6.9.12-400-gentoo
 GENTOO_CONFIG_VER=g13
 FEDORA_CONFIG_DISTGIT="copr-dist-git.fedorainfracloud.org/cgit/@asahi/kernel"
 # FEDORA_CONFIG_DISTGIT="copr-dist-git.fedorainfracloud.org/cgit/ngompa/fedora-asahi-dev"
-FEDORA_CONFIG_SHA1=6c6a304ceb2b4c42cbc4d6d7a935353516ff99d9
+FEDORA_CONFIG_SHA1=c444448bda99f817acb642511741c1573143a012
 
 DESCRIPTION="Asahi Linux kernel sources"
 HOMEPAGE="https://asahilinux.org"
 SRC_URI="
     https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
-    https://github.com/AsahiLinux/linux/compare/v${MY_BASE}...${BASE_ASAHI_TAG}.patch
-        -> linux-${BASE_ASAHI_TAG}.patch
+    https://github.com/AsahiLinux/linux/compare/v${MY_BASE}...${ASAHI_TAG}.patch
+        -> linux-${ASAHI_TAG}.patch
     https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.base.tar.xz
     https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.extras.tar.xz
     https://github.com/projg2/gentoo-kernel-config/archive/${GENTOO_CONFIG_VER}.tar.gz
@@ -53,7 +52,7 @@ SRC_URI="
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
-KEYWORDS="arm64"
+KEYWORDS="~arm64"
 
 IUSE="debug"
 
@@ -83,7 +82,7 @@ src_prepare() {
     local PATCHES=(
         # meh, genpatches have no directory
         "${WORKDIR}"/*.patch
-        "${DISTDIR}/linux-${BASE_ASAHI_TAG}.patch"
+        "${DISTDIR}/linux-${ASAHI_TAG}.patch"
         "${FILESDIR}/${PN}-6.8-config-gentoo-Drop-RANDSTRUCT-from-GENTOO_KERNEL_SEL.patch"
     )
 	default
