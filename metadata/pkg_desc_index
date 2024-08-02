@@ -13,7 +13,7 @@ sys-apps/speakersafetyd 0.1.9-r1 1.0.0: Speaker protection daemon for embedded L
 sys-boot/m1n1 1.4.14: Apple Silicon bootloader and experimentation playground
 sys-boot/u-boot 2024.04_p1: Asahi Linux fork of Das U-Boot
 sys-firmware/asahi-firmware 0.7.7: Asahi FW extraction script
-sys-kernel/asahi-kernel 6.9.7_p1-r2 6.9.9_p7: Asahi Linux kernel sources
+sys-kernel/asahi-kernel 6.9.9_p7 6.9.12_p1: Asahi Linux kernel sources
 sys-kernel/asahi-sources 6.9.12_p1: Asahi Linux kernel sources
-virtual/dist-kernel 6.9.7_p1 6.9.9_p7: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 6.9.9_p7 6.9.12_p1: Virtual to depend on any Distribution Kernel
 virtual/linux-sources 3-r6: Virtual for Linux kernel sources
