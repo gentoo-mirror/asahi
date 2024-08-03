@@ -9,4 +9,4 @@ LICENSE=MIT
 RDEPEND=sys-boot/u-boot || ( sys-kernel/asahi-sources sys-kernel/asahi-kernel )
 SLOT=0
 SRC_URI=https://github.com/AsahiLinux/m1n1/archive/refs/tags/v1.4.14.tar.gz -> m1n1-1.4.14.tar.gz
-_md5_=ec73366b756c1e437ea35421d30c0b58
+_md5_=8934685551145550c9f6def97753c641
