@@ -1,6 +1,6 @@
 BDEPEND=app-arch/rpm2targz app-arch/rpm2targz
 DEFINED_PHASES=install prepare unpack
-DEPEND=sys-apps/flatpak =media-libs/mesa-24.2.0_pre20240727
+DEPEND=sys-apps/flatpak ~media-libs/mesa-24.2.0_pre20240727
 DESCRIPTION=Asahi OpenGL Extension for Flatpak
 EAPI=8
 HOMEPAGE=https://asahilinux.org https://flatpak.org
@@ -8,9 +8,9 @@ INHERIT=rpm
 IUSE=+2208 +2308
 KEYWORDS=~arm64
 LICENSE=MIT SGI-B-2.0
-RDEPEND=sys-apps/flatpak =media-libs/mesa-24.2.0_pre20240727
+RDEPEND=sys-apps/flatpak ~media-libs/mesa-24.2.0_pre20240727
 REQUIRED_USE=|| ( 2208 2308 )
 SLOT=0
 SRC_URI=2308? ( https://download.copr.fedorainfracloud.org/results/@asahi/flatpak/fedora-40-aarch64/07799255-mesa-asahi-23.08-flatpak/mesa-asahi-23.08-flatpak-24.2.0~asahipre20240727-1.aarch64.rpm -> mesa-asahi-flatpak-24.2.0_pre20240727-2308.rpm ) 2208? ( https://download.copr.fedorainfracloud.org/results/@asahi/flatpak/fedora-40-aarch64/07799256-mesa-asahi-22.08-flatpak/mesa-asahi-22.08-flatpak-24.2.0~asahipre20240727-1.aarch64.rpm -> mesa-asahi-flatpak-24.2.0_pre20240727-2208.rpm )
 _eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	7828cd38ff559545ca52f92064d0f8f4
-_md5_=0af01a7edb692489847e2b230532c64f
+_md5_=40d7a62427c7354c1bc98337406966f9
