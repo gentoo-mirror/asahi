@@ -25,6 +25,10 @@ BDEPEND="${BDEPEND}
 	clang? ( sys-devel/clang )
 "
 
+PATCHES="
+	"${FILESDIR}/${P}-simd-reg-fix.patch"
+"
+
 src_compile() {
 	cd "${S}" || die
 	if use clang; then
