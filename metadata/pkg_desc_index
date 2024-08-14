@@ -4,7 +4,7 @@ media-libs/asahi-audio 2.2: PipeWire/WirePlumber configuration files for Apple S
 media-libs/bankstown-lv2 1.1.0: A barebones, fast LV2 bass enhancement plugin
 media-libs/mesa 24.2.0_pre20240527 24.2.0_pre20240727: OpenGL-like graphic library for Linux
 media-libs/mesa-asahi-flatpak 24.2.0_pre20240527-r1 24.2.0_pre20240727: Asahi OpenGL Extension for Flatpak
-media-libs/widevine-installer 0.1-r2: Widevine installer for AArch64 systems
+media-libs/widevine-installer 0.2: Widevine installer for AArch64 systems
 sys-apps/asahi-configs 1.0: Asahi Linux configurations
 sys-apps/asahi-meta 2-r8: Metapackage for the Asahi support packages
 sys-apps/asahi-nvram-meta 0.1: Metapackage for asahi-nvram modules
