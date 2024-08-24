@@ -1,0 +1,16 @@
+BDEPEND=dev-util/wayland-scanner || ( ( dev-lang/python:3.13 dev-python/jinja[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/jinja[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/jinja[python_targets_python3_11(-)] ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install setup test
+DEPEND=media-libs/mesa x11-libs/libdrm x11-libs/pixman x11-libs/libxcb x11-libs/libxkbcommon dev-libs/wayland test? ( dev-cpp/gtest )
+DESCRIPTION=Nested Wayland compositor with support for X11 forwarding
+EAPI=8
+HOMEPAGE=https://chromium.googlesource.com/chromiumos/platform2/+/refs/heads/main/vm_tools/sommelier/
+INHERIT=meson python-any-r1
+IUSE=test
+KEYWORDS=~amd64 ~arm64
+LICENSE=BSD
+RDEPEND=media-libs/mesa x11-libs/libdrm x11-libs/pixman x11-libs/libxcb x11-libs/libxkbcommon dev-libs/wayland test? ( dev-cpp/gtest ) x11-base/xwayland
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://chromium.googlesource.com/chromiumos/platform2/+archive/31e06b16f0546e277408ffbebc4e5dded7d3324e/vm_tools/sommelier.tar.gz -> sommelier-0.12_p20240820.tar.gz
+_eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a
+_md5_=784a13269febde6a624ee6774ecfc168
