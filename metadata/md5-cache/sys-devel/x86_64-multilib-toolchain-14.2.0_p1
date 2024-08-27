@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install postinst postrm prepare pretend
+DEPEND=dev-libs/gmp:= dev-libs/mpc:= dev-libs/mpfr:= sys-libs/zlib:= virtual/libiconv bin-symlinks? ( !cross-x86_64-multilib-linux-gnu/binutils !cross-x86_64-multilib-linux-gnu/gcc !cross-x86_64-multilib-linux-gnu/glibc )
+DESCRIPTION=All-in-one x86 toolchain for packages that need this specific crosscompiler
+EAPI=8
+HOMEPAGE=https://gcc.gnu.org/ https://sourceware.org/binutils/ https://www.kernel.org/
+INHERIT=edo flag-o-matic toolchain-funcs
+IUSE=+bin-symlinks custom-cflags +strip
+KEYWORDS=~amd64 ~arm64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=GPL-3+ LGPL-3+ || ( GPL-3+ libgcc libstdc++ gcc-runtime-library-exception-3.1 ) GPL-2 LGPL-2.1+ BSD HPND ISC inner-net rc PCRE
+RDEPEND=dev-libs/gmp:= dev-libs/mpc:= dev-libs/mpfr:= sys-libs/zlib:= virtual/libiconv bin-symlinks? ( !cross-x86_64-multilib-linux-gnu/binutils !cross-x86_64-multilib-linux-gnu/gcc !cross-x86_64-multilib-linux-gnu/glibc )
+SLOT=0
+SRC_URI=mirror://gnu/binutils/binutils-2.43.1.tar.xz https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.10.tar.xz mirror://gnu/glibc/glibc-2.40.tar.xz mirror://gcc/gcc-14.2.0/gcc-14.2.0.tar.xz mirror://gnu/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d
+_md5_=d7d3fbf48157b24102eb2411962c5042

@@ -1,4 +1,5 @@
 app-arch/lzfse 1.0: LZFSE compression utilities
+app-emulation/FEX 2408: A fast usermode x86 and x86-64 emulator for Arm64 Linux
 app-emulation/krun 0.0.0_p20240820: Run programs from your system in a microVM
 dev-libs/libkrun 1.9.4: A dynamic library providing Virtualization-based process isolation capabilities
 dev-libs/libkrunfw 4.3.0: A dynamic library bundling the guest payload consumed by libkrun
@@ -17,6 +18,7 @@ sys-apps/asahi-scripts 20240623 20240822: Apple Silicon support scripts
 sys-apps/speakersafetyd 1.0.0: Speaker protection daemon for embedded Linux systems
 sys-boot/m1n1 1.4.14-r1: Apple Silicon bootloader and experimentation playground
 sys-boot/u-boot 2024.04_p1: Asahi Linux fork of Das U-Boot
+sys-devel/x86_64-multilib-toolchain 14.2.0_p1: All-in-one x86 toolchain for packages that need this specific crosscompiler
 sys-firmware/asahi-firmware 0.7.8: Asahi FW extraction script
 sys-kernel/asahi-kernel 6.9.12_p2 6.10.5_p1: Asahi Linux kernel sources
 sys-kernel/asahi-sources 6.10.5_p1: Asahi Linux kernel sources

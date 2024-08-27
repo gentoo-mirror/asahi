@@ -2,6 +2,8 @@
 # Please add your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using pmaint *
 
+app-emulation/FEX:crossdev-toolchain - Bring-your-own x86(-64) toolchains.
+app-emulation/FEX:thunks - Build thunk libraries
 media-libs/mesa:d3d9 - Enable Direct 3D9 API through Nine state tracker. Can be used together with patched wine.
 media-libs/mesa:llvm - Enable LLVM backend for Gallium3D.
 media-libs/mesa:lm-sensors - Enable Gallium HUD lm-sensors support.
@@ -24,6 +26,7 @@ sys-apps/asahi-nvram-meta:bluetooth - Pull in net-misc/asahi-btsync
 sys-apps/asahi-nvram-meta:raw - Enable raw NVRAM reading with sys-apps/asahi-nvram
 sys-apps/asahi-nvram-meta:wifi - Pull in net-misc/asahi-wifisync
 sys-boot/m1n1:clang - Build with the Clang/LLVM toolchain
+sys-devel/x86_64-multilib-toolchain:bin-symlinks - Symlink executables to usr/bin to be in default PATH (conflicts with crossdev, and crossdev is preferable for a fully featured toolchain)
 sys-kernel/asahi-kernel:initramfs - Create an initramfs
 sys-kernel/asahi-sources:rust - Pull in the Rust For Linux dependencies
 sys-kernel/asahi-sources:symlink - Automatically symlink the kernel sources to /usr/src/linux
