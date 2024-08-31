@@ -51,7 +51,7 @@ index 575d2e195..c82672e3f 100644
  
  #include <wayland-client.h>
 diff --git a/toolchain_x86_32.cmake b/toolchain_x86_32.cmake
-index 89e3134d3..8bd7ca3f8 100644
+index 89e3134d3..18fe655d1 100644
 --- a/toolchain_x86_32.cmake
 +++ b/toolchain_x86_32.cmake
 @@ -15,6 +15,11 @@ if (ENABLE_CLANG_THUNKS)
@@ -69,10 +69,10 @@ index 89e3134d3..8bd7ca3f8 100644
 +  set(CMAKE_SHARED_LINKER_FLAGS "${X86_LDFLAGS}")
  endif()
 diff --git a/toolchain_x86_64.cmake b/toolchain_x86_64.cmake
-index 9aa856a01..6dacf17c5 100644
+index 9aa856a01..8da9da8ee 100644
 --- a/toolchain_x86_64.cmake
 +++ b/toolchain_x86_64.cmake
-@@ -15,6 +15,12 @@ if (ENABLE_CLANG_THUNKS)
+@@ -15,6 +15,11 @@ if (ENABLE_CLANG_THUNKS)
    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${CLANG_FLAGS}")
    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CLANG_FLAGS}")
  else()
