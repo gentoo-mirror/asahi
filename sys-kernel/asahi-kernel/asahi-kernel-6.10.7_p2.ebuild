@@ -9,7 +9,7 @@ K_NODRYRUN="1"
 inherit kernel-build
 
 MY_P=linux-${PV%.*}
-GENPATCHES_P="genpatches-$(ver_cut 1-2)-13"
+GENPATCHES_P="genpatches-$(ver_cut 1-2)-10"
 
 if [[ ${PV} != ${PV/_rc} ]] ; then
 	# $PV is expected to be of following form: 6.0_rc5_p1
@@ -29,11 +29,11 @@ fi
 # the first tag of a linux 6.x or linux stable 6.x.y release
 ASAHI_TAG="asahi-${MY_BASE}-${MY_TAG}"
 
-CONFIG_VER=6.9.12-401-gentoo
-GENTOO_CONFIG_VER=g13
+CONFIG_VER=6.10.5-400-gentoo
+GENTOO_CONFIG_VER=g6
 FEDORA_CONFIG_DISTGIT="copr-dist-git.fedorainfracloud.org/cgit/@asahi/kernel"
 # FEDORA_CONFIG_DISTGIT="copr-dist-git.fedorainfracloud.org/cgit/ngompa/fedora-asahi-dev"
-FEDORA_CONFIG_SHA1=39a9d06b1b8194b754cd958fdaadb44db008b37a
+FEDORA_CONFIG_SHA1=53e7990555eec8037d9e5e4d6a3f47e612fceac2
 
 DESCRIPTION="Asahi Linux kernel sources"
 HOMEPAGE="https://asahilinux.org"
@@ -52,7 +52,7 @@ SRC_URI="
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
-KEYWORDS="arm64"
+KEYWORDS="~arm64"
 
 IUSE="debug"
 
@@ -106,6 +106,7 @@ src_prepare() {
 	)
 	use debug || merge_configs+=(
 		"${dist_conf_path}"/no-debug.config
+		"${FILESDIR}"/linux-6.10_disable_debug_info_btf.config
 	)
 
 	# deselect all non APPLE arm64 ARCHs
