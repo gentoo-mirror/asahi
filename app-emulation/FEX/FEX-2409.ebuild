@@ -11,16 +11,12 @@ HOMEPAGE="https://fex-emu.com"
 JEMALLOC_HASH="7ae889695b8bebdc67c004c2c9c8d2e57748d2ab"
 JEMALLOC_GLIBC_HASH="888181c5f7072ab1bd7aa7aca6d9f85816a95c43"
 # TODO: unvendor this when this version will be available in gentoo
-FMTLIB_V="10.1.1"
+FMTLIB_V="11.0.2"
 CPP_OPTPARSE_HASH="eab4212ae864ba64306f0fe87f102e66cb5a3617"
-# TODO: The following two will be hard-vendored in next release, drop them then.
-JSON_MAKER_HASH="8ecb8ecc348bf88c592fac808c03efb342f69e0a"
-TINY_JSON_HASH="9d09127f87ea6a128fb17d1ffd0b444517343f1c"
-# TODO: This would be possible to unvendor in the next release
 VIXL_HASH="a90f5d5020c305d03d3182dcc90a31321cc7a661"
-ROBIN_MAP_HASH="f1ab6900466891af11e3c264c63acf1dd9c3532c"
-# TODO: Unvendor and replace this with Qt in next release
+ROBIN_MAP_HASH="d5683d9f1891e5b04e3e3b2192b5349dc8d814ea"
 IMGUI_HASH="4c986ecb8d2807087fd8e34894d1e7a138bc2f1d"
+
 # This need to be vendored since thunk generator does not support the latest version
 VULKAN_HEADERS_HASH="31aa7f634b052d87ede4664053e85f3f4d1d50d3"
 
@@ -29,8 +25,6 @@ SRC_URI="
 	https://github.com/FEX-Emu/jemalloc/archive/${JEMALLOC_GLIBC_HASH}.tar.gz -> jemalloc-glibc-${JEMALLOC_GLIBC_HASH}.tar.gz
 	https://github.com/fmtlib/fmt/archive/refs/tags/${FMTLIB_V}.tar.gz -> libfmt-${FMTLIB_V}.tar.gz
 	https://github.com/Sonicadvance1/cpp-optparse/archive/${CPP_OPTPARSE_HASH}.tar.gz -> cpp-optparse-${CPP_OPTPARSE_HASH}.tar.gz
-	https://github.com/Sonicadvance1/json-maker/archive/${JSON_MAKER_HASH}.tar.gz -> json-maker-${JSON_MAKER_HASH}.tar.gz
-	https://github.com/Sonicadvance1/tiny-json/archive/${TINY_JSON_HASH}.tar.gz -> tiny-json-${TINY_JSON_HASH}.tar.gz
 	https://github.com/FEX-Emu/vixl/archive/${VIXL_HASH}.tar.gz -> vixl-${VIXL_HASH}.tar.gz
 	https://github.com/FEX-Emu/robin-map/archive/${ROBIN_MAP_HASH}.tar.gz -> robin-map-${ROBIN_MAP_HASH}.tar.gz
 	https://github.com/Sonicadvance1/imgui/archive/${IMGUI_HASH}.tar.gz -> imgui-${IMGUI_HASH}.tar.gz
@@ -54,11 +48,20 @@ BDEPEND="
 "
 RDEPEND="
 	dev-libs/xxhash
-	X? (
+	imgui? (
 		media-libs/libsdl2
 		media-libs/libglvnd
 		media-libs/libepoxy
 		x11-libs/libX11
+	)
+	qt5? (
+		dev-qt/qtcore:5
+		dev-qt/qtgui:5[wayland(-),X(-)]
+		dev-qt/qtwidgets[X]
+	)
+	qt6? (
+		dev-qt/qtbase:6[gui,wayland(-),widgets,X(-)]
+		dev-qt/qtquick3d
 	)
 	thunks? (
 		x11-libs/libX11
@@ -79,15 +82,17 @@ PATCHES="
 	${FILESDIR}/${P}-unvendor-drm-headers.patch
 	${FILESDIR}/${P}-tiny-json-as-static.patch
 	${FILESDIR}/${P}-fmt-as-static.patch
-	${FILESDIR}/${P}-json-maker-as-static.patch
 	${FILESDIR}/${P}-imgui-as-static.patch
 	${FILESDIR}/${PN}-thunks-toolchain-paths.patch
 	${FILESDIR}/${PN}-thunkgen-gcc-install-dir.patch
 "
 
-IUSE="X +thunks crossdev-toolchain"
+IUSE="crossdev-toolchain fexconfig imgui qt5 qt6 +thunks"
 
-REQUIRED_USE="crossdev-toolchain? ( thunks )"
+REQUIRED_USE="
+	crossdev-toolchain? ( thunks )
+	fexconfig? ( ^^ ( imgui qt5 qt6 ) )
+"
 
 my-test-flag-PROG() {
 	local comp=$1
@@ -204,8 +209,6 @@ src_unpack() {
 		jemalloc "jemalloc-${JEMALLOC_HASH}"
 		jemalloc_glibc "jemalloc-${JEMALLOC_GLIBC_HASH}"
 		fmt "fmt-${FMTLIB_V}"
-		json-maker "json-maker-${JSON_MAKER_HASH}"
-		tiny-json "tiny-json-${TINY_JSON_HASH}"
 		vixl "vixl-${VIXL_HASH}"
 		robin-map "robin-map-${ROBIN_MAP_HASH}"
 		imgui "imgui-${IMGUI_HASH}"
@@ -293,11 +296,16 @@ src_configure() {
 
 	tc-export CC CXX LD AR NM OBJDUMP RANLIB PKG_CONFIG
 
+	# We need to prevent FEXConfig from building on non-gui
+	# systems.
+	local fexconfig_toolkit=""
+	use fexconfig && fexconfig_toolkit=$(usex imgui imgui qt)
+
 	local mycmakeargs=(
 		-DBUILD_TESTS=False
 		-DENABLE_CCACHE=False
 		-DENABLE_LTO=$(if tc-is-lto; then echo True; else echo False; fi)
-		-DBUILD_FEXCONFIG=$(usex X True False)
+		-DUSE_FEXCONFIG_TOOLKIT=${fexconfig_toolkit}
 		-DBUILD_THUNKS=$(usex thunks True False)
 		-DX86_CFLAGS="${X86_CFLAGS}"
 		-DX86_CXXFLAGS="${X86_CXXFLAGS}"
