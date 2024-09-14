@@ -29,7 +29,7 @@ fi
 # the first tag of a linux 6.x or linux stable 6.x.y release
 ASAHI_TAG="asahi-${MY_BASE}-${MY_TAG}"
 
-CONFIG_VER=6.10.5-400-gentoo
+CONFIG_VER=6.10.7-401-gentoo
 GENTOO_CONFIG_VER=g6
 FEDORA_CONFIG_DISTGIT="copr-dist-git.fedorainfracloud.org/cgit/@asahi/kernel"
 # FEDORA_CONFIG_DISTGIT="copr-dist-git.fedorainfracloud.org/cgit/ngompa/fedora-asahi-dev"
@@ -52,7 +52,7 @@ SRC_URI="
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
-KEYWORDS="~arm64"
+KEYWORDS="arm64"
 
 IUSE="debug"
 
@@ -116,6 +116,11 @@ src_prepare() {
 	# adjust base config for Apple silicon systems
 	merge_configs+=(
 		"${FILESDIR}"/linux-6.8_arch_apple_overrides.config
+	)
+
+	# amdgpu no longer builds with clang (issue #113)
+	merge_configs+=(
+		"${FILESDIR}"/linux-6.10_drop_amdgpu.config
 	)
 
 	kernel-build_merge_configs "${merge_configs[@]}"

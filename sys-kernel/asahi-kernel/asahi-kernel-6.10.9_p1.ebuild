@@ -9,7 +9,7 @@ K_NODRYRUN="1"
 inherit kernel-build
 
 MY_P=linux-${PV%.*}
-GENPATCHES_P="genpatches-$(ver_cut 1-2)-8"
+GENPATCHES_P="genpatches-$(ver_cut 1-2)-12"
 
 if [[ ${PV} != ${PV/_rc} ]] ; then
 	# $PV is expected to be of following form: 6.0_rc5_p1
@@ -29,11 +29,11 @@ fi
 # the first tag of a linux 6.x or linux stable 6.x.y release
 ASAHI_TAG="asahi-${MY_BASE}-${MY_TAG}"
 
-CONFIG_VER=6.10.5-400-gentoo
+CONFIG_VER=6.10.9-401-gentoo
 GENTOO_CONFIG_VER=g6
 FEDORA_CONFIG_DISTGIT="copr-dist-git.fedorainfracloud.org/cgit/@asahi/kernel"
 # FEDORA_CONFIG_DISTGIT="copr-dist-git.fedorainfracloud.org/cgit/ngompa/fedora-asahi-dev"
-FEDORA_CONFIG_SHA1=ec9dd1038d53e056ee24bddc3dda08bc9d5e9214
+FEDORA_CONFIG_SHA1=53e7990555eec8037d9e5e4d6a3f47e612fceac2
 
 DESCRIPTION="Asahi Linux kernel sources"
 HOMEPAGE="https://asahilinux.org"
@@ -52,7 +52,7 @@ SRC_URI="
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
-KEYWORDS="arm64"
+KEYWORDS="~arm64"
 
 IUSE="debug"
 
@@ -116,6 +116,11 @@ src_prepare() {
 	# adjust base config for Apple silicon systems
 	merge_configs+=(
 		"${FILESDIR}"/linux-6.8_arch_apple_overrides.config
+	)
+
+	# amdgpu no longer builds with clang (issue #113)
+	merge_configs+=(
+		"${FILESDIR}"/linux-6.10_drop_amdgpu.config
 	)
 
 	kernel-build_merge_configs "${merge_configs[@]}"
