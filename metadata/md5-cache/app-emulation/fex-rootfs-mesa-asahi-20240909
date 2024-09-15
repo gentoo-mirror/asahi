@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install postinst postrm prerm pretend setup
+DEPEND=systemd? ( sys-apps/systemd )
+DESCRIPTION=FEX rootfs overlay containing asahi mesa
+EAPI=8
+HOMEPAGE=https://github.com/WhatAmISupposedToPutHere/fex-rootfs
+INHERIT=systemd linux-info
+IUSE=systemd
+KEYWORDS=-* ~arm64
+LICENSE=metapackage MIT
+RDEPEND=systemd? ( sys-apps/systemd ) app-emulation/fex-rootfs-gentoo
+SLOT=0
+SRC_URI=https://github.com/WhatAmISupposedToPutHere/fex-rootfs/releases/download/mesa-20240909/fex-mesa.sqfs -> fex-rootfs-mesa-asahi-20240909.sqfs https://github.com/WhatAmISupposedToPutHere/fex-rootfs/archive/refs/tags/20240909.tar.gz -> fex-rootfs-mesa-asahi-20240909.tar.gz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	systemd	0f241b5c9f3758c3d3423df59a7f655a	linux-info	ea4122ba1d8791a12b78e53f9510a2e3
+_md5_=0e99134292996b88cadbe8ab1f8b69f5
