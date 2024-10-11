@@ -8,10 +8,10 @@ CRATES="
 	adler@1.0.2
 	aho-corasick@1.1.3
 	anstream@0.6.14
-	anstyle@1.0.7
 	anstyle-parse@0.2.4
 	anstyle-query@1.0.3
 	anstyle-wincon@3.0.3
+	anstyle@1.0.7
 	anyhow@1.0.83
 	backtrace@0.3.72
 	bindgen@0.69.4
@@ -56,9 +56,9 @@ CRATES="
 	pin-project-lite@0.2.14
 	proc-macro2@1.0.82
 	quote@1.0.36
-	regex@1.10.4
 	regex-automata@0.4.6
 	regex-syntax@0.8.3
+	regex@1.10.4
 	rustc-demangle@0.1.24
 	rustc-hash@1.1.0
 	rustix@0.38.34
@@ -71,10 +71,10 @@ CRATES="
 	socket2@0.5.7
 	syn@2.0.61
 	tempfile@3.10.1
-	tokio@1.38.0
 	tokio-macros@2.3.0
 	tokio-stream@0.1.15
 	tokio-util@0.7.11
+	tokio@1.38.0
 	unicode-ident@1.0.12
 	utf8parse@0.2.1
 	uuid@1.10.0
@@ -102,17 +102,15 @@ CRATES="
 
 inherit cargo
 
-GIT_COMMIT="54bd66e42f0dcb40ae9b73e2632a926c86551857"
-
 DESCRIPTION="Run programs from your system in a microVM"
 HOMEPAGE="https://github.com/AsahiLinux/muvm"
 
 SRC_URI="
 	${CARGO_CRATE_URIS}
-	https://github.com/AsahiLinux/muvm/archive/${GIT_COMMIT}.tar.gz -> ${P}.tar.gz
+	https://github.com/AsahiLinux/muvm/archive/refs/tags/${P}.tar.gz -> ${P}.tar.gz
 "
 
-S="${WORKDIR}/${PN}-${GIT_COMMIT}"
+S="${WORKDIR}/muvm-${P}"
 
 LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 MIT Unicode-DFS-2016 Unlicense ZLIB"
 SLOT="0"
@@ -138,7 +136,7 @@ src_compile() {
 
 src_install() {
 	local bin
-	for bin in krun{,-guest,-server}; do
+	for bin in muvm{,-guest,-server}; do
 		dobin "$(cargo_target_dir)/$bin"
 	done
 }

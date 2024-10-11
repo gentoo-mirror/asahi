@@ -35,17 +35,16 @@ CRATES="
 	crc32fast@1.4.2
 	crossbeam-channel@0.5.13
 	crossbeam-utils@0.8.20
-	curl@0.4.46
 	curl-sys@0.4.72+curl-8.6.0
-	dirs@5.0.1
+	curl@0.4.46
 	dirs-sys@0.4.1
+	dirs@5.0.1
 	either@1.12.0
 	env_logger@0.9.3
 	equivalent@1.0.1
 	flate2@1.0.30
-	foreign-types@0.3.2
 	foreign-types-shared@0.1.1
-	futures@0.3.30
+	foreign-types@0.3.2
 	futures-channel@0.3.30
 	futures-core@0.3.30
 	futures-executor@0.3.30
@@ -54,6 +53,7 @@ CRATES="
 	futures-sink@0.3.30
 	futures-task@0.3.30
 	futures-util@0.3.30
+	futures@0.3.30
 	getrandom@0.2.15
 	glob@0.3.1
 	hashbrown@0.14.5
@@ -61,8 +61,8 @@ CRATES="
 	hermit-abi@0.1.19
 	hex@0.4.3
 	humantime@2.1.0
-	iana-time-zone@0.1.60
 	iana-time-zone-haiku@0.1.2
+	iana-time-zone@0.1.60
 	indexmap@2.2.6
 	iocuddle@0.1.1
 	itertools@0.12.1
@@ -76,8 +76,8 @@ CRATES="
 	libc@0.2.155
 	libloading@0.8.3
 	libredox@0.1.3
-	libspa@0.8.0
 	libspa-sys@0.8.0
+	libspa@0.8.0
 	libz-sys@1.1.18
 	log@0.4.21
 	lru@0.12.3
@@ -92,15 +92,15 @@ CRATES="
 	nom@7.1.3
 	num-traits@0.2.19
 	once_cell@1.19.0
-	openssl@0.10.64
 	openssl-macros@0.1.1
 	openssl-probe@0.1.5
 	openssl-sys@0.9.102
+	openssl@0.10.64
 	option-ext@0.2.0
 	pin-project-lite@0.2.14
 	pin-utils@0.1.0
-	pipewire@0.8.0
 	pipewire-sys@0.8.0
+	pipewire@0.8.0
 	pkg-config@0.3.30
 	ppv-lite86@0.2.17
 	proc-macro2@1.0.85
@@ -110,15 +110,15 @@ CRATES="
 	rand_chacha@0.3.1
 	rand_core@0.6.4
 	redox_users@0.4.5
-	regex@1.10.4
 	regex-automata@0.4.6
 	regex-syntax@0.8.3
+	regex@1.10.4
 	remain@0.2.14
 	rustc-hash@1.1.0
 	ryu@1.0.18
 	schannel@0.1.23
-	serde@1.0.203
 	serde-big-array@0.5.1
+	serde@1.0.203
 	serde_bytes@0.11.14
 	serde_derive@1.0.203
 	serde_json@1.0.117
@@ -133,8 +133,8 @@ CRATES="
 	system-deps@6.2.2
 	target-lexicon@0.12.14
 	termcolor@1.4.1
-	thiserror@1.0.61
 	thiserror-impl@1.0.61
+	thiserror@1.0.61
 	toml@0.8.14
 	toml_datetime@0.6.6
 	toml_edit@0.22.14
@@ -150,15 +150,15 @@ CRATES="
 	vm-memory@0.14.1
 	vmm-sys-util@0.12.1
 	wasi@0.11.0+wasi-snapshot-preview1
-	wasm-bindgen@0.2.92
 	wasm-bindgen-backend@0.2.92
-	wasm-bindgen-macro@0.2.92
 	wasm-bindgen-macro-support@0.2.92
+	wasm-bindgen-macro@0.2.92
 	wasm-bindgen-shared@0.2.92
-	winapi@0.3.9
+	wasm-bindgen@0.2.92
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.8
 	winapi-x86_64-pc-windows-gnu@0.4.0
+	winapi@0.3.9
 	windows-core@0.52.0
 	windows-sys@0.48.0
 	windows-sys@0.52.0
@@ -181,10 +181,10 @@ CRATES="
 	windows_x86_64_msvc@0.52.5
 	winnow@0.6.11
 	yansi-term@0.1.2
-	zerocopy@0.6.6
-	zerocopy@0.7.34
 	zerocopy-derive@0.6.6
 	zerocopy-derive@0.7.34
+	zerocopy@0.6.6
+	zerocopy@0.7.34
 "
 
 inherit cargo
@@ -212,7 +212,6 @@ DEPEND="
 BDEPEND="
 	dev-util/patchelf
 "
-
 src_compile() {
 	unset ARCH
 	emake PREFIX=/usr GPU=1 BLK=1 NET=1 SND=1
