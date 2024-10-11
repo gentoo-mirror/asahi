@@ -12,11 +12,11 @@ HOMEPAGE="https://asahilinux.org https://flatpak.org"
 
 SRC_URI="
 2308? (
-	https://download.copr.fedorainfracloud.org/results/@asahi/flatpak/fedora-40-aarch64/07799255-mesa-asahi-23.08-flatpak/mesa-asahi-23.08-flatpak-24.2.0~asahipre20240727-1.aarch64.rpm  -> ${P}-2308.rpm
+	https://download.copr.fedorainfracloud.org/results/@asahi/flatpak/fedora-40-aarch64/08122420-mesa-asahi-23.08-flatpak/mesa-asahi-23.08-flatpak-24.3.0~asahipre20241006-1.aarch64.rpm  -> ${P}-2308.rpm
 )
 
-2208? (
-	https://download.copr.fedorainfracloud.org/results/@asahi/flatpak/fedora-40-aarch64/07799256-mesa-asahi-22.08-flatpak/mesa-asahi-22.08-flatpak-24.2.0~asahipre20240727-1.aarch64.rpm -> ${P}-2208.rpm
+2408? (
+	https://download.copr.fedorainfracloud.org/results/@asahi/flatpak/fedora-40-aarch64/08122419-mesa-asahi-24.08-flatpak/mesa-asahi-24.08-flatpak-24.3.0~asahipre20241006-1.aarch64.rpm -> ${P}-2408.rpm
 )
 "
 
@@ -25,10 +25,10 @@ S="${WORKDIR}"
 LICENSE="MIT SGI-B-2.0"
 SLOT="0"
 
-KEYWORDS="arm64"
+KEYWORDS="~arm64"
 
-IUSE="+2208 +2308"
-REQUIRED_USE="|| ( 2208 2308 )"
+IUSE="+2308 +2408"
+REQUIRED_USE="|| ( 2308 2408 )"
 
 RDEPEND="
 	sys-apps/flatpak
@@ -48,10 +48,10 @@ src_unpack() {
 		rpm_unpack ${P}-2308.rpm
 	)
 
-	use 2208 && (
-		mkdir "${WORKDIR}/${P}-2208" || die
-		cd "${WORKDIR}/${P}-2208" || die
-		rpm_unpack ${P}-2208.rpm
+	use 2408 && (
+		mkdir "${WORKDIR}/${P}-2408" || die
+		cd "${WORKDIR}/${P}-2408" || die
+		rpm_unpack ${P}-2408.rpm
 	)
 }
 
@@ -67,5 +67,5 @@ mesa-asahi-flatpak_install() {
 
 src_install() {
 	use 2308 && mesa-asahi-flatpak_install "2308"
-	use 2208 && mesa-asahi-flatpak_install "2208"
+	use 2408 && mesa-asahi-flatpak_install "2408"
 }

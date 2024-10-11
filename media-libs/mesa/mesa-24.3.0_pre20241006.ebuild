@@ -3,10 +3,10 @@
 
 EAPI=8
 
-LLVM_COMPAT=( {17..18} )
+LLVM_COMPAT=( {17..19} )
 LLVM_OPTIONAL=1
 CARGO_OPTIONAL=1
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit flag-o-matic llvm-r1 meson-multilib python-any-r1 linux-info rust-toolchain toolchain-funcs
 
@@ -16,8 +16,8 @@ MY_P="${P/_/-}"
 MY_PV="$(ver_cut 5)"
 
 CRATES="
-	syn@2.0.39
-	proc-macro2@1.0.70
+	syn@2.0.68
+	proc-macro2@1.0.86
 	quote@1.0.33
 	unicode-ident@1.0.12
 	paste@1.0.14
@@ -35,7 +35,7 @@ else
 	SRC_URI="
 		https://gitlab.freedesktop.org/asahi/mesa/-/archive/asahi-${MY_PV}/mesa-asahi-${MY_PV}.tar.gz
 	"
-	KEYWORDS="arm64"
+	KEYWORDS="~arm64"
 fi
 
 # This should be {CARGO_CRATE_URIS//.crate/.tar.gz} to correspond to the wrap files,
@@ -52,7 +52,9 @@ LICENSE="MIT SGI-B-2.0"
 SLOT="0"
 
 RADEON_CARDS="r300 r600 radeon radeonsi"
-VIDEO_CARDS="${RADEON_CARDS} asahi d3d12 freedreno intel lavapipe lima nouveau nvk panfrost v3d vc4 virgl vivante vmware zink"
+VIDEO_CARDS="${RADEON_CARDS}
+	asahi d3d12 freedreno honeykrisp intel lavapipe lima nouveau nvk panfrost v3d vc4 virgl
+	vivante vmware zink"
 for card in ${VIDEO_CARDS}; do
 	IUSE_VIDEO_CARDS+=" video_cards_${card}"
 done
@@ -61,7 +63,7 @@ IUSE="${IUSE_VIDEO_CARDS}
 	cpu_flags_x86_sse2 d3d9 debug +llvm
 	lm-sensors opencl +opengl osmesa +proprietary-codecs selinux
 	test unwind vaapi valgrind vdpau vulkan
-	vulkan-overlay wayland +X xa +zstd"
+	wayland +X xa +zstd"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	d3d9? (
@@ -78,18 +80,18 @@ REQUIRED_USE="
 		)
 	)
 	llvm? ( ${LLVM_REQUIRED_USE} )
-	vulkan-overlay? ( vulkan )
 	video_cards_asahi? ( llvm )
 	video_cards_lavapipe? ( llvm vulkan )
 	video_cards_radeon? ( x86? ( llvm ) amd64? ( llvm ) )
 	video_cards_r300?   ( x86? ( llvm ) amd64? ( llvm ) )
 	video_cards_zink? ( vulkan opengl )
 	video_cards_nvk? ( vulkan video_cards_nouveau )
+	video_cards_honeykrisp? ( vulkan video_cards_asahi )
 	vdpau? ( X )
 	xa? ( X )
 "
 
-LIBDRM_DEPSTRING=">=x11-libs/libdrm-2.4.119"
+LIBDRM_DEPSTRING=">=x11-libs/libdrm-2.4.121"
 ASAHI_KERNEL_MIN_VER="6.9.12_p1"
 RDEPEND="
 	>=dev-libs/expat-2.1.0-r3[${MULTILIB_USEDEP}]
@@ -226,6 +228,7 @@ pkg_pretend() {
 	if use vulkan; then
 		if ! use video_cards_d3d12 &&
 		   ! use video_cards_freedreno &&
+		   ! use video_cards_honeykrisp &&
 		   ! use video_cards_intel &&
 		   ! use video_cards_lavapipe &&
 		   ! use video_cards_nouveau &&
@@ -337,7 +340,7 @@ multilib_src_configure() {
 	   use video_cards_r300 ||
 	   use video_cards_r600 ||
 	   use video_cards_radeonsi ||
-	   use video_cards_vmware || # swrast
+	   use video_cards_vmware || # svga
 	   use video_cards_zink; then
 		emesonargs+=($(meson_use d3d9 gallium-nine))
 	else
@@ -378,17 +381,8 @@ multilib_src_configure() {
 		emesonargs+=(-Dgallium-xa=disabled)
 	fi
 
-	if use video_cards_asahi ||
-	   use video_cards_freedreno ||
-	   use video_cards_lima ||
-	   use video_cards_panfrost ||
-	   use video_cards_v3d ||
-	   use video_cards_vc4 ||
-	   use video_cards_vivante; then
-		gallium_enable -- kmsro
-	fi
-
-	gallium_enable -- swrast
+	gallium_enable !llvm softpipe
+	gallium_enable llvm llvmpipe
 	gallium_enable video_cards_asahi asahi
 	gallium_enable video_cards_d3d12 d3d12
 	gallium_enable video_cards_freedreno freedreno
@@ -423,6 +417,7 @@ multilib_src_configure() {
 	if use vulkan; then
 		vulkan_enable video_cards_d3d12 microsoft-experimental
 		vulkan_enable video_cards_freedreno freedreno
+		vulkan_enable video_cards_honeykrisp asahi
 		vulkan_enable video_cards_intel intel intel_hasvk
 		vulkan_enable video_cards_lavapipe swrast
 		vulkan_enable video_cards_panfrost panfrost
@@ -439,17 +434,14 @@ multilib_src_configure() {
 				)
 			fi
 		fi
+
+		emesonargs+=(-Dvulkan-layers=device-select,overlay)
 	fi
 
 	driver_list() {
 		local drivers="$(sort -u <<< "${1// /$'\n'}")"
 		echo "${drivers//$'\n'/,}"
 	}
-
-	local vulkan_layers
-	use vulkan && vulkan_layers+="device-select"
-	use vulkan-overlay && vulkan_layers+=",overlay"
-	emesonargs+=(-Dvulkan-layers=${vulkan_layers#,})
 
 	if use opengl && use X; then
 		emesonargs+=(-Dglx=dri)
@@ -466,7 +458,6 @@ multilib_src_configure() {
 	emesonargs+=(
 		$(meson_use test build-tests)
 		-Dshared-glapi=enabled
-		-Ddri3=enabled
 		-Dexpat=enabled
 		$(meson_use opengl)
 		$(meson_feature opengl gbm)
@@ -513,8 +504,4 @@ vulkan_enable() {
 		shift
 		VULKAN_DRIVERS+=("$@")
 	fi
-}
-
-pkg_postinst() {
-	einfo "${MY_P} requires asahi-kernel / asahi-sources 6.9.9_p1 or later."
 }
