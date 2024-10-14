@@ -1,5 +1,5 @@
 app-arch/lzfse 1.0: LZFSE compression utilities
-app-emulation/FEX 2409-r1 2409-r2: A fast usermode x86 and x86-64 emulator for Arm64 Linux
+app-emulation/FEX 2409-r1 2409-r2 2410: A fast usermode x86 and x86-64 emulator for Arm64 Linux
 app-emulation/fex-rootfs-gentoo 20241012: A x86 system image used for FEX
 app-emulation/fex-rootfs-mesa-asahi 20241012: FEX rootfs overlay containing asahi mesa
 app-emulation/muvm 0.1.2: Run programs from your system in a microVM
