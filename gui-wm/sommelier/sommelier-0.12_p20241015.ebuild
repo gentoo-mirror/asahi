@@ -19,7 +19,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 PATCHES="
-	${FILESDIR}/${PN}-0.12-disable-vgpu-stride-fix.patch
+	${FILESDIR}/${PN}-0.12-revert-cross-domain-identifiers.patch
+	${FILESDIR}/${PN}-0.12-dont-call-fixup_plane0.patch
+	${FILESDIR}/${PN}-0.12-no-unused-wl-assert.patch
 	${FILESDIR}/${PN}-0.12-enforce-16k-alignment.patch
 "
 
