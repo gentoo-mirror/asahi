@@ -7,7 +7,7 @@ ETYPE="sources"
 CKV="$(ver_cut 1-3)"
 K_SECURITY_UNSUPPORTED="1"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="12"
+K_GENPATCHES_VER="3"
 K_NODRYRUN="1"
 
 inherit kernel-2
@@ -41,18 +41,15 @@ SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}
 KV_FULL="${PVR/_p/-asahi-}"
 S="${WORKDIR}/linux-${KV_FULL}"
 
-KEYWORDS="arm64"
-IUSE="rust"
+KEYWORDS="~arm64"
 
 DEPEND="
 	${DEPEND}
-	rust? (
-		|| (
-			>=dev-lang/rust-bin-1.76[rust-src,rustfmt]
-			>=dev-lang/rust-1.76[rust-src,rustfmt]
-		)
-		dev-util/bindgen
+	|| (
+		>=dev-lang/rust-bin-1.76[rust-src,rustfmt]
+		>=dev-lang/rust-1.76[rust-src,rustfmt]
 	)
+	dev-util/bindgen
 "
 
 UNIPATCH_STRICTORDER="yes"
