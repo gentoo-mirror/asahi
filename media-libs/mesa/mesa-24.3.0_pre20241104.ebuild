@@ -35,7 +35,7 @@ else
 	SRC_URI="
 		https://gitlab.freedesktop.org/asahi/mesa/-/archive/asahi-${MY_PV}/mesa-asahi-${MY_PV}.tar.gz
 	"
-	KEYWORDS="arm64"
+	KEYWORDS="~arm64"
 fi
 
 # This should be {CARGO_CRATE_URIS//.crate/.tar.gz} to correspond to the wrap files,
@@ -53,7 +53,7 @@ SLOT="0"
 
 RADEON_CARDS="r300 r600 radeon radeonsi"
 VIDEO_CARDS="${RADEON_CARDS}
-	asahi d3d12 freedreno intel lavapipe lima nouveau nvk panfrost v3d vc4 virgl
+	asahi d3d12 freedreno honeykrisp intel lavapipe lima nouveau nvk panfrost v3d vc4 virgl
 	vivante vmware zink"
 for card in ${VIDEO_CARDS}; do
 	IUSE_VIDEO_CARDS+=" video_cards_${card}"
@@ -86,6 +86,7 @@ REQUIRED_USE="
 	video_cards_r300?   ( x86? ( llvm ) amd64? ( llvm ) )
 	video_cards_zink? ( vulkan opengl )
 	video_cards_nvk? ( vulkan video_cards_nouveau )
+	video_cards_honeykrisp? ( vulkan video_cards_asahi )
 	vdpau? ( X )
 	xa? ( X )
 "
@@ -227,6 +228,7 @@ pkg_pretend() {
 	if use vulkan; then
 		if ! use video_cards_d3d12 &&
 		   ! use video_cards_freedreno &&
+		   ! use video_cards_honeykrisp &&
 		   ! use video_cards_intel &&
 		   ! use video_cards_lavapipe &&
 		   ! use video_cards_nouveau &&
@@ -415,6 +417,7 @@ multilib_src_configure() {
 	if use vulkan; then
 		vulkan_enable video_cards_d3d12 microsoft-experimental
 		vulkan_enable video_cards_freedreno freedreno
+		vulkan_enable video_cards_honeykrisp asahi
 		vulkan_enable video_cards_intel intel intel_hasvk
 		vulkan_enable video_cards_lavapipe swrast
 		vulkan_enable video_cards_panfrost panfrost
