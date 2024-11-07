@@ -15,7 +15,7 @@ media-libs/mesa-asahi-flatpak 24.3.0_pre20241006 24.3.0_pre20241104: Asahi OpenG
 media-libs/virglrenderer 1.0.1_p20240925: library used implement a virtual 3D GPU used by qemu
 media-libs/widevine-installer 0.2: Widevine installer for AArch64 systems
 sys-apps/asahi-configs 1.0: Asahi Linux configurations
-sys-apps/asahi-meta 2-r8: Metapackage for the Asahi support packages
+sys-apps/asahi-meta 2-r8 2-r9: Metapackage for the Asahi support packages
 sys-apps/asahi-nvram-meta 0.1: Metapackage for asahi-nvram modules
 sys-apps/asahi-scripts 20240623 20240822 20240822-r1: Apple Silicon support scripts
 sys-apps/speakersafetyd 1.0.0 1.0.1: Speaker protection daemon for embedded Linux systems
