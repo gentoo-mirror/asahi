@@ -115,6 +115,7 @@ S="${WORKDIR}/muvm-${P}"
 LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 MIT Unicode-DFS-2016 Unlicense ZLIB"
 SLOT="0"
 KEYWORDS="~arm64"
+
 DEPEND="
 	dev-libs/libkrun
 "
