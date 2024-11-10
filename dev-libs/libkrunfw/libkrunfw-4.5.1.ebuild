@@ -10,7 +10,7 @@ inherit python-any-r1
 DESCRIPTION="A dynamic library bundling the guest payload consumed by libkrun"
 HOMEPAGE="https://github.com/containers/libkrunfw"
 
-KERNEL_VERSION=linux-6.6.52
+KERNEL_VERSION=linux-6.6.59
 
 SRC_URI="
 	https://cdn.kernel.org/pub/linux/kernel/v6.x/${KERNEL_VERSION}.tar.xz

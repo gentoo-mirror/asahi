@@ -147,7 +147,7 @@ CRATES="
 	version_check@0.9.4
 	virtio-bindings@0.2.2
 	vm-fdt@0.3.0
-	vm-memory@0.14.1
+	vm-memory@0.16.0
 	vmm-sys-util@0.12.1
 	wasi@0.11.0+wasi-snapshot-preview1
 	wasm-bindgen-backend@0.2.92
