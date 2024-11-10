@@ -3,8 +3,8 @@ app-emulation/FEX 2409-r1 2409-r2 2410: A fast usermode x86 and x86-64 emulator 
 app-emulation/fex-rootfs-gentoo 20241012: A x86 system image used for FEX
 app-emulation/fex-rootfs-mesa-asahi 20241012: FEX rootfs overlay containing asahi mesa
 app-emulation/muvm 0.1.3-r1: Run programs from your system in a microVM
-dev-libs/libkrun 1.9.5: A dynamic library providing Virtualization-based process isolation capabilities
-dev-libs/libkrunfw 4.4.2: A dynamic library bundling the guest payload consumed by libkrun
+dev-libs/libkrun 1.9.6: A dynamic library providing Virtualization-based process isolation capabilities
+dev-libs/libkrunfw 4.5.1: A dynamic library bundling the guest payload consumed by libkrun
 games-util/hidpipe 0.1.0: Pass hid devices to micro vms.
 gui-wm/sommelier 0.12_p20241015: Nested Wayland compositor with support for X11 forwarding
 media-libs/alsa-ucm-conf-asahi 5.0: ALSA ucm configuration files for Apple silicon devices
