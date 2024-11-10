@@ -6,10 +6,13 @@ K_SECURITY_UNSUPPORTED="1"
 ETYPE="sources"
 K_NODRYRUN="1"
 
-inherit kernel-build
+RUST_MIN_VER="1.76.0"
+RUST_USEDEP='rust-src,rustfmt'
+
+inherit kernel-build rust
 
 MY_P=linux-${PV%.*}
-GENPATCHES_P="genpatches-$(ver_cut 1-2)-12"
+GENPATCHES_P="genpatches-$(ver_cut 1-2)-8"
 
 if [[ ${PV} != ${PV/_rc} ]] ; then
 	# $PV is expected to be of following form: 6.0_rc5_p1
@@ -29,11 +32,11 @@ fi
 # the first tag of a linux 6.x or linux stable 6.x.y release
 ASAHI_TAG="asahi-${MY_BASE}-${MY_TAG}"
 
-CONFIG_VER=6.10.9-401-gentoo
+CONFIG_VER=6.11.6-401-gentoo
 GENTOO_CONFIG_VER=g6
 FEDORA_CONFIG_DISTGIT="copr-dist-git.fedorainfracloud.org/cgit/@asahi/kernel"
 # FEDORA_CONFIG_DISTGIT="copr-dist-git.fedorainfracloud.org/cgit/ngompa/fedora-asahi-dev"
-FEDORA_CONFIG_SHA1=53e7990555eec8037d9e5e4d6a3f47e612fceac2
+FEDORA_CONFIG_SHA1=e5ae5b9db04b27dc69efceb35802130aec6cd375
 
 DESCRIPTION="Asahi Linux kernel sources"
 HOMEPAGE="https://asahilinux.org"
@@ -52,18 +55,13 @@ SRC_URI="
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
-KEYWORDS="arm64"
+KEYWORDS="~arm64"
 
 IUSE="debug"
 
 # Rust is non-negotiable for the dist kernel
 DEPEND="
 	${DEPEND}
-	virtual/rust
-	|| (
-			>=dev-lang/rust-bin-1.76[rust-src,rustfmt]
-			>=dev-lang/rust-1.76[rust-src,rustfmt]
-		)
 	dev-util/bindgen
 	debug? ( dev-util/pahole )
 "
