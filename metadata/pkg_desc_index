@@ -2,28 +2,28 @@ app-arch/lzfse 1.0: LZFSE compression utilities
 app-emulation/FEX 2409-r1 2409-r2 2410: A fast usermode x86 and x86-64 emulator for Arm64 Linux
 app-emulation/fex-rootfs-gentoo 20241012: A x86 system image used for FEX
 app-emulation/fex-rootfs-mesa-asahi 20241012: FEX rootfs overlay containing asahi mesa
-app-emulation/muvm 0.1.2-r1 0.1.3: Run programs from your system in a microVM
+app-emulation/muvm 0.1.3-r1: Run programs from your system in a microVM
 dev-libs/libkrun 1.9.5: A dynamic library providing Virtualization-based process isolation capabilities
 dev-libs/libkrunfw 4.4.2: A dynamic library bundling the guest payload consumed by libkrun
 games-util/hidpipe 0.1.0: Pass hid devices to micro vms.
 gui-wm/sommelier 0.12_p20241015: Nested Wayland compositor with support for X11 forwarding
 media-libs/alsa-ucm-conf-asahi 5.0: ALSA ucm configuration files for Apple silicon devices
 media-libs/asahi-audio 2.3 2.4: PipeWire/WirePlumber configuration files for Apple Silicon
-media-libs/bankstown-lv2 1.1.0: A barebones, fast LV2 bass enhancement plugin
-media-libs/mesa 24.3.0_pre20241006 24.3.0_pre20241104: OpenGL-like graphic library for Linux
-media-libs/mesa-asahi-flatpak 24.3.0_pre20241006 24.3.0_pre20241104: Asahi OpenGL Extension for Flatpak
+media-libs/bankstown-lv2 1.1.0-r1: A barebones, fast LV2 bass enhancement plugin
+media-libs/mesa 24.3.0_pre20241104-r1: OpenGL-like graphic library for Linux
+media-libs/mesa-asahi-flatpak 24.3.0_pre20241104: Asahi OpenGL Extension for Flatpak
 media-libs/virglrenderer 1.0.1_p20240925: library used implement a virtual 3D GPU used by qemu
 media-libs/widevine-installer 0.2: Widevine installer for AArch64 systems
 sys-apps/asahi-configs 1.0: Asahi Linux configurations
 sys-apps/asahi-meta 2-r8 2-r9: Metapackage for the Asahi support packages
 sys-apps/asahi-nvram-meta 0.1: Metapackage for asahi-nvram modules
 sys-apps/asahi-scripts 20240623 20240822 20240822-r1: Apple Silicon support scripts
-sys-apps/speakersafetyd 1.0.0 1.0.1: Speaker protection daemon for embedded Linux systems
-sys-boot/m1n1 1.4.16: Apple Silicon bootloader and experimentation playground
-sys-boot/u-boot 2024.04_p1 2024.10_p1: Asahi Linux fork of Das U-Boot
+sys-apps/speakersafetyd 1.0.2: Speaker protection daemon for embedded Linux systems
+sys-boot/m1n1 1.4.16 1.4.17: Apple Silicon bootloader and experimentation playground
+sys-boot/u-boot 2024.10_p1: Asahi Linux fork of Das U-Boot
 sys-devel/x86_64-multilib-toolchain 14.2.0_p1: All-in-one x86 toolchain for packages that need this specific crosscompiler
 sys-firmware/asahi-firmware 0.7.8: Asahi FW extraction script
-sys-kernel/asahi-kernel 6.10.9_p3 6.11.0_p2: Asahi Linux kernel sources
-sys-kernel/asahi-sources 6.11.2_p1 6.11.4_p1-r1: Asahi Linux kernel sources
-virtual/dist-kernel 6.10.9_p3 6.11.0_p2: Virtual to depend on any Distribution Kernel
+sys-kernel/asahi-kernel 6.11.0_p2-r1 6.11.6_p2: Asahi Linux kernel sources
+sys-kernel/asahi-sources 6.11.4_p1-r2 6.11.6_p2: Asahi Linux kernel sources
+virtual/dist-kernel 6.11.0_p2 6.11.6_p2: Virtual to depend on any Distribution Kernel
 virtual/linux-sources 3-r6: Virtual for Linux kernel sources
