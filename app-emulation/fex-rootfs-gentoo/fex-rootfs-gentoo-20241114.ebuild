@@ -19,6 +19,8 @@ LICENSE="metapackage MIT"
 SLOT="0"
 KEYWORDS="-* ~arm64"
 RDEPEND="
+	gnome-extra/zenity
+	sys-apps/xdg-desktop-portal
 	systemd? ( sys-apps/systemd )
 "
 DEPEND="${RDEPEND}"
