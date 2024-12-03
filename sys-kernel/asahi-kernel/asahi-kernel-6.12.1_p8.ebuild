@@ -12,7 +12,7 @@ RUST_USEDEP='rust-src,rustfmt'
 inherit kernel-build rust
 
 MY_P=linux-${PV%.*}
-GENPATCHES_P="genpatches-$(ver_cut 1-2)-1"
+GENPATCHES_P="genpatches-$(ver_cut 1-2)-2"
 
 if [[ ${PV} != ${PV/_rc} ]] ; then
 	# $PV is expected to be of following form: 6.0_rc5_p1
@@ -32,13 +32,14 @@ fi
 # the first tag of a linux 6.x or linux stable 6.x.y release
 ASAHI_TAG="asahi-${MY_BASE}-${MY_TAG}"
 
-CONFIG_VER=6.11.0-400-gentoo
+CONFIG_VER=6.12.1-404-gentoo
 GENTOO_CONFIG_VER=g6
 FEDORA_CONFIG_DISTGIT="copr-dist-git.fedorainfracloud.org/cgit/@asahi/kernel"
 # FEDORA_CONFIG_DISTGIT="copr-dist-git.fedorainfracloud.org/cgit/ngompa/fedora-asahi-dev"
-FEDORA_CONFIG_SHA1=6503e5d5d82d55a217dc1a6740375b116b4b57eb
+FEDORA_CONFIG_SHA1=062d9f38a2979b31945c58e38a60df191fc14249
 
 DESCRIPTION="Asahi Linux kernel sources"
+SLOT="asahi/${PVR}"
 HOMEPAGE="https://asahilinux.org"
 SRC_URI="
     https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
@@ -55,7 +56,7 @@ SRC_URI="
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
-KEYWORDS="arm64"
+KEYWORDS="~arm64"
 
 IUSE="debug"
 
