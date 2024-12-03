@@ -7,12 +7,12 @@ HOMEPAGE=https://asahilinux.org
 IDEPEND=!initramfs? ( >=sys-kernel/installkernel-14 ) initramfs? ( || ( >=sys-kernel/installkernel-14[dracut(-)] >=sys-kernel/installkernel-14[ugrd(-)] ) )
 INHERIT=kernel-build rust
 IUSE=debug savedconfig +initramfs test +strip
-KEYWORDS=~arm64
+KEYWORDS=arm64
 LICENSE=GPL-2
 PDEPEND=~virtual/dist-kernel-6.11.6_p2
 RDEPEND=virtual/libelf
 RESTRICT=!test? ( test ) test? ( userpriv ) arm? ( test )
-SLOT=6.11.6_p2
+SLOT=asahi/6.11.6_p2
 SRC_URI=https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.11.tar.xz https://github.com/AsahiLinux/linux/compare/v6.11.6...asahi-6.11.6-2.patch -> linux-asahi-6.11.6-2.patch https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.11-8.base.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.11-8.extras.tar.xz https://github.com/projg2/gentoo-kernel-config/archive/g6.tar.gz -> gentoo-kernel-config-g6.tar.gz https://copr-dist-git.fedorainfracloud.org/cgit/@asahi/kernel/kernel.git/plain/kernel-aarch64-16k-fedora.config?id=e5ae5b9db04b27dc69efceb35802130aec6cd375 -> kernel-aarch64-16k-fedora.config-6.11.6-401-gentoo
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82	portability	a39e3d646f76cb45d06b44cc1144b8d4	savedconfig	b9131abe556ad2ea96c01b06d658d363	mount-boot-utils	69218c024651aa10db01df7e8a5b63e0	dist-kernel-utils	f7cc6a540e8b78cd3fd09f1afc4ded23	kernel-install	ff95e872959a1fd27e5b01520329ae7a	kernel-build	8a596a2a5ceaf2ab568130d693a58111	rust	34c01e04a384273d9460a608f9191d9f
-_md5_=b6a50938c58841e63150190d2e05084f
+_md5_=0f9db6fb0c267b1ff3f8e21946a0f606
