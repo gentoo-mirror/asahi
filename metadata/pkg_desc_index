@@ -12,7 +12,7 @@ media-libs/asahi-audio 2.5: PipeWire/WirePlumber configuration files for Apple S
 media-libs/bankstown-lv2 1.1.0-r2: A barebones, fast LV2 bass enhancement plugin
 media-libs/mesa 24.3.0_pre20241111 25.0.0_pre20241202: OpenGL-like graphic library for Linux
 media-libs/mesa-asahi-flatpak 24.3.0_pre20241111 25.0.0_pre20241202: Asahi OpenGL Extension for Flatpak
-media-libs/virglrenderer 1.0.1_p20240925: library used implement a virtual 3D GPU used by qemu
+media-libs/virglrenderer 1.0.1_p20241129: library used implement a virtual 3D GPU used by qemu
 media-libs/widevine-installer 0.2: Widevine installer for AArch64 systems
 sys-apps/asahi-configs 1.0: Asahi Linux configurations
 sys-apps/asahi-meta 2-r8 2-r9: Metapackage for the Asahi support packages
