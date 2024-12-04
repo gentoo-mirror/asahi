@@ -10,10 +10,10 @@ HOMEPAGE="https://github.com/WhatAmISupposedToPutHere/fex-rootfs"
 
 SRC_URI="
 	https://github.com/WhatAmISupposedToPutHere/fex-rootfs/releases/download/mesa-${PV}/fex-mesa.sqfs -> ${P}.sqfs
-	https://github.com/WhatAmISupposedToPutHere/fex-rootfs/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/WhatAmISupposedToPutHere/fex-rootfs/archive/refs/tags/20241114.tar.gz -> ${P}.tar.gz
 "
 
-S="${WORKDIR}/fex-rootfs-${PV}"
+S="${WORKDIR}/fex-rootfs-20241114"
 
 LICENSE="metapackage MIT"
 SLOT="0"
