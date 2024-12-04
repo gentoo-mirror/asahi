@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/clang sys-devel/llvm thunks? ( !crossdev-toolchain? ( sys-devel/x86_64-multilib-toolchain ) llvm_slot_18? ( sys-devel/clang:18= sys-devel/llvm:18= ) llvm_slot_19? ( sys-devel/clang:19= sys-devel/llvm:19= ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst prepare pretend setup test unpack
+DEPEND=>=sys-kernel/linux-headers-6.8 dev-libs/xxhash >=dev-libs/libfmt-11.0.2 qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5[wayland(-),X(-)] dev-qt/qtwidgets[X] ) qt6? ( dev-qt/qtbase:6[gui,wayland(-),widgets,X(-)] dev-qt/qtdeclarative:6 ) thunks? ( x11-libs/libX11 x11-libs/libdrm dev-libs/wayland media-libs/alsa-lib media-libs/libglvnd x11-libs/libxcb ) app-emulation/fex-rootfs-gentoo app-emulation/fex-rootfs-mesa-asahi
+DESCRIPTION=A fast usermode x86 and x86-64 emulator for Arm64 Linux
+EAPI=8
+HOMEPAGE=https://fex-emu.com
+INHERIT=flag-o-matic cmake toolchain-funcs llvm-r1
+IUSE=crossdev-toolchain fexconfig qt5 qt6 +thunks +llvm_slot_18 llvm_slot_19
+KEYWORDS=-* ~arm64
+LICENSE=MIT
+RDEPEND=dev-libs/xxhash >=dev-libs/libfmt-11.0.2 qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5[wayland(-),X(-)] dev-qt/qtwidgets[X] ) qt6? ( dev-qt/qtbase:6[gui,wayland(-),widgets,X(-)] dev-qt/qtdeclarative:6 ) thunks? ( x11-libs/libX11 x11-libs/libdrm dev-libs/wayland media-libs/alsa-lib media-libs/libglvnd x11-libs/libxcb ) app-emulation/fex-rootfs-gentoo app-emulation/fex-rootfs-mesa-asahi
+REQUIRED_USE=crossdev-toolchain? ( thunks ) fexconfig? ( ^^ ( qt5 qt6 ) ) thunks? ( ^^ ( llvm_slot_18 llvm_slot_19 ) )
+SLOT=0
+SRC_URI=https://github.com/FEX-Emu/jemalloc/archive/02ca52b5fefc0ccd0d2c4eaa1d17989cdd641927.tar.gz -> jemalloc-02ca52b5fefc0ccd0d2c4eaa1d17989cdd641927.tar.gz https://github.com/FEX-Emu/jemalloc/archive/404353974e335fb771562249163e2ea62c558e7e.tar.gz -> jemalloc-glibc-404353974e335fb771562249163e2ea62c558e7e.tar.gz https://github.com/Sonicadvance1/cpp-optparse/archive/eab4212ae864ba64306f0fe87f102e66cb5a3617.tar.gz -> cpp-optparse-eab4212ae864ba64306f0fe87f102e66cb5a3617.tar.gz https://github.com/FEX-Emu/robin-map/archive/d5683d9f1891e5b04e3e3b2192b5349dc8d814ea.tar.gz -> robin-map-d5683d9f1891e5b04e3e3b2192b5349dc8d814ea.tar.gz thunks? ( https://github.com/KhronosGroup/Vulkan-Headers/archive/29f979ee5aa58b7b005f805ea8df7a855c39ff37.tar.gz -> Vulkan-Headers-29f979ee5aa58b7b005f805ea8df7a855c39ff37.tar.gz ) https://github.com/FEX-Emu/FEX/archive/refs/tags/FEX-2412.tar.gz
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	c989cff79c0976415f459e367a83dff9	llvm-r1	c6f5dcc9d729a7028f3884ff342d280c
+_md5_=a2921379aabf0be73bef0872cd9cebcf
