@@ -38,7 +38,7 @@ else
 	SRC_URI="
 		https://gitlab.freedesktop.org/asahi/mesa/-/archive/asahi-${MY_PV}/mesa-asahi-${MY_PV}.tar.gz
 	"
-	KEYWORDS="~arm64"
+	KEYWORDS="arm64"
 fi
 
 # This should be {CARGO_CRATE_URIS//.crate/.tar.gz} to correspond to the wrap files,
@@ -132,8 +132,8 @@ RDEPEND="
 	vdpau? ( >=x11-libs/libvdpau-1.5:=[${MULTILIB_USEDEP}] )
 	video_cards_asahi? (
 		|| (
-			>=sys-kernel/asahi-sources-${ASAHI_KERNEL_MIN_VER}
-			>=sys-kernel/asahi-kernel-${ASAHI_KERNEL_MIN_VER}
+			>=sys-kernel/asahi-sources-${ASAHI_KERNEL_MIN_VER}:*
+			>=virtual/dist-kernel-${ASAHI_KERNEL_MIN_VER}:asahi
 		)
 		dev-libs/libclc[spirv(-)]
 	)

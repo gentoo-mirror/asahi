@@ -3,8 +3,6 @@
 
 EAPI=8
 
-LLVM_COMPAT=( 18 )
-
 inherit rpm
 
 DESCRIPTION="Asahi OpenGL Extension for Flatpak"
@@ -12,11 +10,11 @@ HOMEPAGE="https://asahilinux.org https://flatpak.org"
 
 SRC_URI="
 2308? (
-	https://download.copr.fedorainfracloud.org/results/@asahi/flatpak/fedora-41-aarch64/08243876-mesa-asahi-23.08-flatpak/mesa-asahi-23.08-flatpak-24.3.0~asahipre20241111-1.aarch64.rpm -> ${P}-2308.rpm
+	https://download.copr.fedorainfracloud.org/results/@asahi/flatpak/fedora-41-aarch64/08341455-mesa-asahi-23.08-flatpak/mesa-asahi-23.08-flatpak-25.0.0~asahipre20241204-1.aarch64.rpm -> ${P}-2308.rpm
 )
 
 2408? (
-	https://download.copr.fedorainfracloud.org/results/@asahi/flatpak/fedora-41-aarch64/08261719-mesa-asahi-24.08-flatpak/mesa-asahi-24.08-flatpak-24.3.0~asahipre20241111-1.aarch64.rpm -> ${P}-2408.rpm
+	https://download.copr.fedorainfracloud.org/results/@asahi/flatpak/fedora-41-aarch64/08341454-mesa-asahi-24.08-flatpak/mesa-asahi-24.08-flatpak-25.0.0~asahipre20241204-1.aarch64.rpm -> ${P}-2408.rpm
 )
 "
 
@@ -25,7 +23,7 @@ S="${WORKDIR}"
 LICENSE="MIT SGI-B-2.0"
 SLOT="0"
 
-KEYWORDS="arm64"
+KEYWORDS="~arm64"
 
 IUSE="+2308 +2408"
 REQUIRED_USE="|| ( 2308 2408 )"
