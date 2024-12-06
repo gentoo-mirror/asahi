@@ -10,6 +10,6 @@ KEYWORDS=-* ~arm64
 LICENSE=metapackage MIT
 RDEPEND=systemd? ( sys-apps/systemd ) app-emulation/fex-rootfs-gentoo
 SLOT=0
-SRC_URI=https://github.com/WhatAmISupposedToPutHere/fex-rootfs/releases/download/mesa-20241203/fex-mesa.sqfs -> fex-rootfs-mesa-asahi-20241203.sqfs https://github.com/WhatAmISupposedToPutHere/fex-rootfs/archive/refs/tags/20241114.tar.gz -> fex-rootfs-mesa-asahi-20241203.tar.gz
+SRC_URI=https://github.com/WhatAmISupposedToPutHere/fex-rootfs/releases/download/mesa-20241205/fex-mesa.sqfs -> fex-rootfs-mesa-asahi-20241205.sqfs https://github.com/WhatAmISupposedToPutHere/fex-rootfs/archive/refs/tags/20241114.tar.gz -> fex-rootfs-mesa-asahi-20241205.tar.gz
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	systemd	54bd206bb5c4efac6ae28b6b006713b0	linux-info	ea4122ba1d8791a12b78e53f9510a2e3
 _md5_=1043dad44c23493b1c739a7304af38a2
