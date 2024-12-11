@@ -2,7 +2,7 @@ app-arch/lzfse 1.0: LZFSE compression utilities
 app-emulation/FEX 2410-r1 2412 2412-r1 2412-r2: A fast usermode x86 and x86-64 emulator for Arm64 Linux
 app-emulation/fex-rootfs-gentoo 20241114 20241116: A x86 system image used for FEX
 app-emulation/fex-rootfs-mesa-asahi 20241205: FEX rootfs overlay containing asahi mesa
-app-emulation/muvm 0.1.3-r1 0.1.4: Run programs from your system in a microVM
+app-emulation/muvm 0.1.4: Run programs from your system in a microVM
 dev-libs/libkrun 1.9.6 1.9.8: A dynamic library providing Virtualization-based process isolation capabilities
 dev-libs/libkrunfw 4.5.1: A dynamic library bundling the guest payload consumed by libkrun
 games-util/hidpipe 0.1.0 0.1.0-r1: Pass hid devices to micro vms.
@@ -10,12 +10,12 @@ gui-wm/sommelier 0.12_p20241015: Nested Wayland compositor with support for X11 
 media-libs/alsa-ucm-conf-asahi 5.0: ALSA ucm configuration files for Apple silicon devices
 media-libs/asahi-audio 2.5: PipeWire/WirePlumber configuration files for Apple Silicon
 media-libs/bankstown-lv2 1.1.0-r2: A barebones, fast LV2 bass enhancement plugin
-media-libs/mesa 25.0.0_pre20241202 25.0.0_pre20241204: OpenGL-like graphic library for Linux
-media-libs/mesa-asahi-flatpak 25.0.0_pre20241202 25.0.0_pre20241204: Asahi OpenGL Extension for Flatpak
+media-libs/mesa 25.0.0_pre20241204: OpenGL-like graphic library for Linux
+media-libs/mesa-asahi-flatpak 25.0.0_pre20241204: Asahi OpenGL Extension for Flatpak
 media-libs/virglrenderer 1.0.1_p20241129 1.0.1_p202412052: library used implement a virtual 3D GPU used by qemu
 media-libs/widevine-installer 0.2: Widevine installer for AArch64 systems
 sys-apps/asahi-configs 1.0: Asahi Linux configurations
-sys-apps/asahi-meta 2-r8 2-r9: Metapackage for the Asahi support packages
+sys-apps/asahi-meta 2-r9: Metapackage for the Asahi support packages
 sys-apps/asahi-nvram-meta 0.1: Metapackage for asahi-nvram modules
 sys-apps/asahi-scripts 20240623 20240822 20240822-r1: Apple Silicon support scripts
 sys-apps/speakersafetyd 1.0.2: Speaker protection daemon for embedded Linux systems
