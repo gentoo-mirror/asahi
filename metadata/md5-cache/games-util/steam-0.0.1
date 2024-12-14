@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile configure install postinst unpack
+DESCRIPTION=Steam launcher bundled with AArch64/ARM64 wrapper for Asahi Linux systems
+EAPI=8
+HOMEPAGE=https://steampowered.com/ https://github.com/chadmed/steam-aarch64
+INHERIT=desktop xdg-utils
+KEYWORDS=-* ~arm64
+LICENSE=GPL-2+ ValveSteamLicense MIT
+RDEPEND=app-emulation/FEX app-emulation/muvm gnome-extra/zenity
+SLOT=0
+SRC_URI=https://repo.steampowered.com/steam/archive/stable/steam_1.0.0.81.tar.gz https://github.com/chadmed/steam-aarch64/archive/fb3e8aeaffe5bb374b34f2eacc91130a05b17b21.tar.gz -> steam-aarch64.tar.gz
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
+_md5_=f83d3c6b6efa8e0abe6a9bdca3363ccd
