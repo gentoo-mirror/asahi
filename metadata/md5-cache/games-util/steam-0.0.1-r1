@@ -10,4 +10,4 @@ RDEPEND=app-emulation/FEX app-emulation/muvm gnome-extra/zenity
 SLOT=0
 SRC_URI=https://repo.steampowered.com/steam/archive/stable/steam_1.0.0.81.tar.gz https://github.com/chadmed/steam-aarch64/archive/fb3e8aeaffe5bb374b34f2eacc91130a05b17b21.tar.gz -> steam-aarch64.tar.gz
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=8e1dfb95fcabc718570097ba2c5b7604
+_md5_=970a6541a1df0b7ffd6773a0621c3964
