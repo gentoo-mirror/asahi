@@ -50,7 +50,7 @@ BDEPEND="
 "
 RDEPEND="
 	dev-libs/xxhash
-	>=dev-libs/libfmt-11.0.2
+	>=dev-libs/libfmt-11.0.2:=
 	qt5? (
 		dev-qt/qtcore:5
 		dev-qt/qtgui:5[wayland(-),X(-)]
