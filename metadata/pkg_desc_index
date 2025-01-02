@@ -1,7 +1,7 @@
 app-arch/lzfse 1.0: LZFSE compression utilities
 app-emulation/FEX 2412-r3: A fast usermode x86 and x86-64 emulator for Arm64 Linux
-app-emulation/fex-rootfs-gentoo 20241116: A x86 system image used for FEX
-app-emulation/fex-rootfs-mesa-asahi 20241205: FEX rootfs overlay containing asahi mesa
+app-emulation/fex-rootfs-gentoo 20241116 20241231: A x86 system image used for FEX
+app-emulation/fex-rootfs-mesa-asahi 20241205 20241231: FEX rootfs overlay containing asahi mesa
 app-emulation/muvm 0.2.0: Run programs from your system in a microVM
 dev-libs/libkrun 1.9.8: A dynamic library providing Virtualization-based process isolation capabilities
 dev-libs/libkrunfw 4.5.1: A dynamic library bundling the guest payload consumed by libkrun
