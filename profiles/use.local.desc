@@ -4,7 +4,6 @@
 
 app-emulation/FEX:crossdev-toolchain - Bring-your-own x86(-64) toolchains.
 app-emulation/FEX:fexconfig - Build the FEXConfig tool
-app-emulation/FEX:qt5 - Build FEXConfig using Qt 5
 app-emulation/FEX:qt6 - Build FEXConfig using Qt 6
 app-emulation/FEX:thunks - Build thunk libraries
 media-libs/mesa:d3d9 - Enable Direct 3D9 API through Nine state tracker. Can be used together with patched wine.
