@@ -9,7 +9,7 @@ HOMEPAGE="https://asahilinux.org/"
 LICENSE="metapackage"
 SLOT=0
 KEYWORDS="arm64"
-IUSE="+audio +mesa +sources kde kernel"
+IUSE="+mesa sound +sources kde kernel"
 
 REQUIRED_USE="
 	sources? ( !kernel )
