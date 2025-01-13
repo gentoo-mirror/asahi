@@ -24,6 +24,6 @@ sys-boot/u-boot 2024.10_p1: Asahi Linux fork of Das U-Boot
 sys-devel/x86_64-multilib-toolchain 14.2.0_p1: All-in-one x86 toolchain for packages that need this specific crosscompiler
 sys-firmware/asahi-firmware 0.7.8 0.7.9: Asahi FW extraction script
 sys-kernel/asahi-kernel 6.12.1_p8 6.12.4_p1-r1: Asahi Linux kernel sources
-sys-kernel/asahi-sources 6.12.3_p1 6.12.4_p1: Asahi Linux kernel sources
+sys-kernel/asahi-sources 6.12.4_p1 6.12.8_p2: Asahi Linux kernel sources
 virtual/dist-kernel 6.12.1_p8 6.12.4_p1: Virtual to depend on any Distribution Kernel
 virtual/linux-sources 3-r6: Virtual for Linux kernel sources
