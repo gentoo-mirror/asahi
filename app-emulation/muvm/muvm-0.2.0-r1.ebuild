@@ -129,6 +129,10 @@ LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 MIT Unico
 SLOT="0"
 KEYWORDS="~arm64"
 
+PATCHES="
+	${FILESDIR}/${PN}-0.2.0-fix-xauthority-handling-for-wildcard-display.patch
+"
+
 DEPEND="
 	dev-libs/libkrun
 "
