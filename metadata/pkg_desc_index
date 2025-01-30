@@ -17,7 +17,7 @@ media-libs/widevine-installer 0.2: Widevine installer for AArch64 systems
 sys-apps/asahi-configs 1.0: Asahi Linux configurations
 sys-apps/asahi-meta 2-r11: Metapackage for the Asahi support packages
 sys-apps/asahi-nvram-meta 0.1: Metapackage for asahi-nvram modules
-sys-apps/asahi-scripts 20240822-r2: Apple Silicon support scripts
+sys-apps/asahi-scripts 20240822-r2 20250128: Apple Silicon support scripts
 sys-apps/speakersafetyd 1.0.2: Speaker protection daemon for embedded Linux systems
 sys-boot/m1n1 1.4.17 1.4.19: Apple Silicon bootloader and experimentation playground
 sys-boot/u-boot 2024.10_p1: Asahi Linux fork of Das U-Boot
