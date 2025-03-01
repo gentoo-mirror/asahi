@@ -4,7 +4,7 @@ app-arch/lzfse 1.0: LZFSE compression utilities
 app-emulation/FEX 2502: A fast usermode x86 and x86-64 emulator for Arm64 Linux
 app-emulation/fex-rootfs-gentoo 20241231: A x86 system image used for FEX
 app-emulation/fex-rootfs-mesa-asahi 20241231: FEX rootfs overlay containing asahi mesa
-app-emulation/muvm 0.3.1: Run programs from your system in a microVM
+app-emulation/muvm 0.3.1 0.3.1-r1: Run programs from your system in a microVM
 dev-libs/libkrun 1.10.1: A dynamic library providing Virtualization-based process isolation capabilities
 dev-libs/libkrunfw 4.7.1: A dynamic library bundling the guest payload consumed by libkrun
 games-util/steam 0.0.1-r1: Steam launcher bundled with AArch64/ARM64 wrapper for Asahi Linux systems
