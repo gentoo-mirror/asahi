@@ -9,10 +9,11 @@ dev-libs/libkrun 1.10.1: A dynamic library providing Virtualization-based proces
 dev-libs/libkrunfw 4.7.1: A dynamic library bundling the guest payload consumed by libkrun
 games-util/steam 0.0.1-r1: Steam launcher bundled with AArch64/ARM64 wrapper for Asahi Linux systems
 media-libs/alsa-ucm-conf-asahi 5.0-r1 7: ALSA ucm configuration files for Apple silicon devices
-media-libs/asahi-audio 2.6: PipeWire/WirePlumber configuration files for Apple Silicon
+media-libs/asahi-audio 2.6 3.1: PipeWire/WirePlumber configuration files for Apple Silicon
 media-libs/bankstown-lv2 1.1.0-r2: A barebones, fast LV2 bass enhancement plugin
 media-libs/mesa 25.0.0_pre20241204-r2 25.1.0_pre20250221: OpenGL-like graphic library for Linux
 media-libs/mesa-asahi-flatpak 25.0.0_pre20241204 25.1.0_pre20250221: Asahi OpenGL Extension for Flatpak
+media-libs/triforce-lv2 0.2.0: Minimum variance distortionless response beamformer for Apple mic arrays
 media-libs/virglrenderer 1.0.1_p202412052: library used implement a virtual 3D GPU used by qemu
 media-libs/widevine-installer 0.2: Widevine installer for AArch64 systems
 sys-apps/asahi-configs 1.0: Asahi Linux configurations
