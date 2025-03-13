@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
@@ -7,7 +7,7 @@ ETYPE="sources"
 CKV="$(ver_cut 1-3)"
 K_SECURITY_UNSUPPORTED="1"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="13"
+K_GENPATCHES_VER="7"
 K_NODRYRUN="1"
 
 RUST_MIN_VER="1.80.0"
@@ -44,7 +44,7 @@ SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}
 KV_FULL="${PVR/_p/-asahi-}"
 S="${WORKDIR}/linux-${KV_FULL}"
 
-KEYWORDS="arm64"
+KEYWORDS="~arm64 ~amd64"
 
 DEPEND="
 	${DEPEND}
