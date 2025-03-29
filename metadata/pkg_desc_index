@@ -20,7 +20,7 @@ sys-apps/asahi-configs 1.0: Asahi Linux configurations
 sys-apps/asahi-meta 2-r11: Metapackage for the Asahi support packages
 sys-apps/asahi-nvram-meta 0.1: Metapackage for asahi-nvram modules
 sys-apps/asahi-scripts 20240822-r2 20250128: Apple Silicon support scripts
-sys-apps/speakersafetyd 1.0.2 1.1.0: Speaker protection daemon for embedded Linux systems
+sys-apps/speakersafetyd 1.0.2 1.1.1: Speaker protection daemon for embedded Linux systems
 sys-boot/m1n1 1.4.21: Apple Silicon bootloader and experimentation playground
 sys-boot/u-boot 2024.10_p1: Asahi Linux fork of Das U-Boot
 sys-devel/x86_64-multilib-toolchain 14.2.0_p1: All-in-one x86 toolchain for packages that need this specific crosscompiler
