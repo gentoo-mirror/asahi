@@ -51,13 +51,17 @@ DEPEND="
 	dev-util/bindgen
 "
 
+#	${FILESDIR}/1740_revert_x86-insn-decoder-test-allow-longer-symbol-names.patch
+#	${FILESDIR}/2981-kbuild-gcc15-gnu23-to-gnu11-fix.patch
+#	${FILESDIR}/2980_revert_kbuild-gcc15-gnu23-to-gnu11-fix.patch
+
 UNIPATCH_STRICTORDER="yes"
 UNIPATCH_LIST="
 	${FILESDIR}/1740_revert_x86-insn-decoder-test-allow-longer-symbol-names.patch
-	${FILESDIR}/2981-kbuild-gcc15-gnu23-to-gnu11-fix.patch
+	${FILESDIR}/2980_revert_kbuild-gcc15-gnu23-to-gnu11-fix.patch
 	${FILESDIR}/asahi-6.8-config-gentoo-Drop-RANDSTRUCT-from-GENTOO_KERNEL_SEL.patch
 	${DISTDIR}/linux-${ASAHI_TAG}.diff
-	${FILESDIR}/2980_revert_kbuild-gcc15-gnu23-to-gnu11-fix.patch
+	${FILESDIR}/2981-kbuild-gcc15-gnu23-to-gnu11-fix.patch
 "
 
 src_prepare() {
