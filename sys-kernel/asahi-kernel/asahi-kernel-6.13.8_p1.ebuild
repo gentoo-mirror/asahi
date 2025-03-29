@@ -12,7 +12,7 @@ RUST_REQ_USE='rust-src,rustfmt'
 inherit kernel-build rust
 
 MY_P=linux-${PV%.*}
-GENPATCHES_P="genpatches-$(ver_cut 1-2)-9"
+GENPATCHES_P="genpatches-$(ver_cut 1-2)-10"
 
 if [[ ${PV} != ${PV/_rc} ]] ; then
 	# $PV is expected to be of following form: 6.0_rc5_p1
@@ -28,25 +28,28 @@ else
 	fi
 fi
 
-# BASE_ASAHI_TAG is the first used TAG of specific release, i.e. usually
-# the first tag of a linux 6.x or linux stable 6.x.y release
 ASAHI_TAG="asahi-${MY_BASE}-${MY_TAG}"
 
-CONFIG_VER=6.13.7-401
+# BASE_ASAHI_TAG is the first used TAG of specific release, i.e. usually
+# the first tag of a linux 6.x or linux stable 6.x.y release
+#BASE_ASAHI_TAG="asahi-${MY_BASE}-3"
+BASE_ASAHI_TAG="${ASAHI_TAG}"
+
+CONFIG_VER=6.13.8-400
 GENTOO_CONFIG_VER=g15
-# provide a temporary mirror as long as Fedora's copr dit-git cgit is dissabled
+# provide a temporary mirror as long as Fedora's copr dist-git cgit is dissabled
 FEDORA_CONFIG_DISTGIT="asahi.jannau.net/cgit/@asahi/kernel"
 # FEDORA_CONFIG_DISTGIT="copr-dist-git.fedorainfracloud.org/cgit/@asahi/kernel"
 # FEDORA_CONFIG_DISTGIT="copr-dist-git.fedorainfracloud.org/cgit/ngompa/fedora-asahi-dev"
-FEDORA_CONFIG_SHA1=01bc2d858c0bbeb190205e733b777aa0fb1a2e0d
+FEDORA_CONFIG_SHA1=0cf2ad3d3bc81a6f5e34ea8d257b25bcf28b7894
 
 DESCRIPTION="Asahi Linux kernel sources"
 SLOT="asahi/${PVR}"
 HOMEPAGE="https://asahilinux.org"
 SRC_URI="
     https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
-    https://github.com/AsahiLinux/linux/compare/v${MY_BASE}...${ASAHI_TAG}.diff
-        -> linux-${ASAHI_TAG}.diff
+    https://github.com/AsahiLinux/linux/compare/v${MY_BASE}...${BASE_ASAHI_TAG}.diff
+        -> linux-${BASE_ASAHI_TAG}.diff
     https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.base.tar.xz
     https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.extras.tar.xz
     https://github.com/projg2/gentoo-kernel-config/archive/${GENTOO_CONFIG_VER}.tar.gz
@@ -84,8 +87,8 @@ src_prepare() {
         # meh, genpatches have no directory
         "${WORKDIR}"/*.patch
         "${FILESDIR}/2980_revert_kbuild-gcc15-gnu23-to-gnu11-fix.patch"
-		"${FILESDIR}/1740_revert_x86-insn-decoder-test-allow-longer-symbol-names.patch"
-        "${DISTDIR}/linux-${ASAHI_TAG}.diff"
+        "${FILESDIR}/1740_revert_x86-insn-decoder-test-allow-longer-symbol-names.patch"
+        "${DISTDIR}/linux-${BASE_ASAHI_TAG}.diff"
         "${FILESDIR}/2981-kbuild-gcc15-gnu23-to-gnu11-fix.patch"
         "${FILESDIR}/${PN}-6.8-config-gentoo-Drop-RANDSTRUCT-from-GENTOO_KERNEL_SEL.patch"
     )
