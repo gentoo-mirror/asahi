@@ -8,7 +8,7 @@ EAPI=8
 CRATES="
 	approx@0.5.1
 	autocfg@1.4.0
-	bytemuck@1.21.0
+	bytemuck@1.22.0
 	lv2-atom@2.0.0
 	lv2-core-derive@2.1.1
 	lv2-core@3.0.0
@@ -27,18 +27,18 @@ CRATES="
 	num-traits@0.2.19
 	paste@1.0.15
 	primal-check@0.3.4
-	proc-macro2@1.0.93
-	quote@1.0.38
+	proc-macro2@1.0.94
+	quote@1.0.40
 	rawpointer@0.2.1
 	rustfft@6.2.0
 	safe_arch@0.7.4
 	simba@0.9.0
 	strength_reduce@0.2.4
 	syn@1.0.109
-	syn@2.0.98
+	syn@2.0.100
 	transpose@0.2.3
-	typenum@1.17.0
-	unicode-ident@1.0.16
+	typenum@1.18.0
+	unicode-ident@1.0.18
 	urid-derive@0.1.1
 	urid@0.1.0
 	version_check@0.9.5
@@ -61,7 +61,7 @@ LICENSE="GPL-2+"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0 MIT Unicode-3.0"
 SLOT="0"
-KEYWORDS="~arm64"
+KEYWORDS="arm64"
 
 DEPEND="
 media-libs/lv2
