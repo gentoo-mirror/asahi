@@ -12,5 +12,5 @@ RDEPEND=sys-apps/flatpak ~media-libs/mesa-25.1.0_pre20250221
 REQUIRED_USE=|| ( 2308 2408 )
 SLOT=0
 SRC_URI=2308? ( https://download.copr.fedorainfracloud.org/results/@asahi/flatpak/fedora-42-aarch64/08714374-mesa-asahi-23.08-flatpak/mesa-asahi-23.08-flatpak-25.1.0~asahipre20250221-1.aarch64.rpm -> mesa-asahi-flatpak-25.1.0_pre20250221-2308.rpm ) 2408? ( https://download.copr.fedorainfracloud.org/results/@asahi/flatpak/fedora-42-aarch64/08714373-mesa-asahi-24.08-flatpak/mesa-asahi-24.08-flatpak-25.1.0~asahipre20250221-1.aarch64.rpm -> mesa-asahi-flatpak-25.1.0_pre20250221-2408.rpm )
-_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	7828cd38ff559545ca52f92064d0f8f4
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	a07e59be6cf48ed85e624a41e8a7a832
 _md5_=7681c8d79c504b7a00baab8a60811376
