@@ -7,7 +7,7 @@ ETYPE="sources"
 CKV="$(ver_cut 1-3)"
 K_SECURITY_UNSUPPORTED="1"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="10"
+K_GENPATCHES_VER="5"
 K_NODRYRUN="1"
 
 RUST_MIN_VER="1.80.0"
@@ -44,7 +44,7 @@ SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}
 KV_FULL="${PVR/_p/-asahi-}"
 S="${WORKDIR}/linux-${KV_FULL}"
 
-KEYWORDS="arm64 amd64"
+KEYWORDS="~arm64 ~amd64"
 
 DEPEND="
 	${DEPEND}
@@ -52,16 +52,12 @@ DEPEND="
 "
 
 #	${FILESDIR}/1740_revert_x86-insn-decoder-test-allow-longer-symbol-names.patch
-#	${FILESDIR}/2981-kbuild-gcc15-gnu23-to-gnu11-fix.patch
-#	${FILESDIR}/2980_revert_kbuild-gcc15-gnu23-to-gnu11-fix.patch
 
 UNIPATCH_STRICTORDER="yes"
 UNIPATCH_LIST="
-	${FILESDIR}/1740_revert_x86-insn-decoder-test-allow-longer-symbol-names.patch
-	${FILESDIR}/2980_revert_kbuild-gcc15-gnu23-to-gnu11-fix.patch
 	${FILESDIR}/asahi-6.8-config-gentoo-Drop-RANDSTRUCT-from-GENTOO_KERNEL_SEL.patch
+	${FILESDIR}/1740_revert_x86-insn-decoder-test-allow-longer-symbol-names.patch
 	${DISTDIR}/linux-${ASAHI_TAG}.diff
-	${FILESDIR}/2981-kbuild-gcc15-gnu23-to-gnu11-fix.patch
 "
 
 src_prepare() {
