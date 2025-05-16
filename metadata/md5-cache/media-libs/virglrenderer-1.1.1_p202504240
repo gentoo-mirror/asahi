@@ -4,7 +4,7 @@ DEPEND=>=x11-libs/libdrm-2.4.50 media-libs/libepoxy =media-libs/mesa-25.1.0-r100
 DESCRIPTION=library used implement a virtual 3D GPU used by qemu
 EAPI=8
 HOMEPAGE=https://virgil3d.github.io/
-INHERIT=meson
+INHERIT=flag-o-matic meson
 IUSE=static-libs
 KEYWORDS=~amd64 ~arm64
 LICENSE=MIT
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/asahi/virglrenderer/-/archive/asahi-20250424/virglrenderer-asahi-20250424.tar.bz2
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	meson	99466844dd8d4fcfb07578a76f5a9922
-_md5_=0f95b6b63b153ce42231ef3123e32b9e
+_md5_=37ac6c5e3d6c8bd8a5286796da65c26e
