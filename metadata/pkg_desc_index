@@ -11,7 +11,7 @@ games-util/steam 0.0.1-r1: Steam launcher bundled with AArch64/ARM64 wrapper for
 media-libs/alsa-ucm-conf-asahi 8: ALSA ucm configuration files for Apple silicon devices
 media-libs/asahi-audio 3.2 3.3: PipeWire/WirePlumber configuration files for Apple Silicon
 media-libs/bankstown-lv2 1.1.0-r2: A barebones, fast LV2 bass enhancement plugin
-media-libs/mesa 25.1.0_pre20250425-r1: OpenGL-like graphic library for Linux
+media-libs/mesa 25.1.0-r100: OpenGL-like graphic library for Linux
 media-libs/mesa-asahi-flatpak 25.1.0_pre20250425: Asahi OpenGL Extension for Flatpak
 media-libs/triforce-lv2 0.2.1 0.3.0: Minimum variance distortionless response beamformer for Apple mic arrays
 media-libs/virglrenderer 1.1.1_p202504240: library used implement a virtual 3D GPU used by qemu
