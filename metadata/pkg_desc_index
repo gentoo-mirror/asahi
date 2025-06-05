@@ -16,10 +16,10 @@ media-libs/mesa-asahi-flatpak 25.1.0_pre20250425: Asahi OpenGL Extension for Fla
 media-libs/triforce-lv2 0.3.2: Minimum variance distortionless response beamformer for Apple mic arrays
 media-libs/virglrenderer 1.1.1_p202504240: library used implement a virtual 3D GPU used by qemu
 media-libs/widevine-installer 0.2: Widevine installer for AArch64 systems
-sys-apps/asahi-configs 1.0 2: Asahi Linux configurations
+sys-apps/asahi-configs 2: Asahi Linux configurations
 sys-apps/asahi-meta 2-r11: Metapackage for the Asahi support packages
 sys-apps/asahi-nvram-meta 0.1: Metapackage for asahi-nvram modules
-sys-apps/asahi-scripts 20250128 20250426.1: Apple Silicon support scripts
+sys-apps/asahi-scripts 20250426.1: Apple Silicon support scripts
 sys-apps/speakersafetyd 1.1.2: Speaker protection daemon for embedded Linux systems
 sys-boot/m1n1 1.4.21: Apple Silicon bootloader and experimentation playground
 sys-boot/u-boot 2024.10_p1 2025.04_p1: Asahi Linux fork of Das U-Boot
