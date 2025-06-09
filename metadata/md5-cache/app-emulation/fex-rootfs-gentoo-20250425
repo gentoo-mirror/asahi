@@ -11,5 +11,5 @@ LICENSE=metapackage MIT
 RDEPEND=gnome-extra/zenity sys-apps/xdg-desktop-portal systemd? ( sys-apps/systemd )
 SLOT=0
 SRC_URI=https://github.com/WhatAmISupposedToPutHere/fex-rootfs/releases/download/20250425/fex-rootfs.sqfs -> fex-rootfs-gentoo-20250425-root.sqfs https://github.com/WhatAmISupposedToPutHere/fex-rootfs/archive/refs/tags/20250425.tar.gz -> fex-rootfs-gentoo-20250425.tar.gz
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	systemd	a964c0cbe818b5729da1dbfcee5be861	linux-info	497f53bf03541c9ee8d103e895ba7b3d
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	systemd	a964c0cbe818b5729da1dbfcee5be861	linux-info	efd923656513c879204fec6638eadee5
 _md5_=f35f4ff9e478d16bc2e38a6a3ad6bf61
