@@ -1,7 +1,7 @@
 acct-group/speakersafetyd 0: speakersafetyd program group
 acct-user/speakersafetyd 0: speakersafetyd program user
 app-arch/lzfse 1.0: LZFSE compression utilities
-app-emulation/FEX 2502 2505 2506: A fast usermode x86 and x86-64 emulator for Arm64 Linux
+app-emulation/FEX 2502 2505 2506 2507: A fast usermode x86 and x86-64 emulator for Arm64 Linux
 app-emulation/fex-rootfs-gentoo 20250425: A x86 system image used for FEX
 app-emulation/fex-rootfs-mesa-asahi 20250425: FEX rootfs overlay containing asahi mesa
 app-emulation/muvm 0.4.1: Run programs from your system in a microVM
