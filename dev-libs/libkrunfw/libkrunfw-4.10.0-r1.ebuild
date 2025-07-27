@@ -3,14 +3,14 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11,12,13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit python-any-r1 toolchain-funcs
 
 DESCRIPTION="A dynamic library bundling the guest payload consumed by libkrun"
 HOMEPAGE="https://github.com/containers/libkrunfw"
 
-KERNEL_VERSION=linux-6.12.20
+KERNEL_VERSION=linux-6.12.34
 
 SRC_URI="
 	https://cdn.kernel.org/pub/linux/kernel/v6.x/${KERNEL_VERSION}.tar.xz
