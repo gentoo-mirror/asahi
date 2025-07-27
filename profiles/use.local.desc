@@ -15,8 +15,6 @@ media-libs/mesa:proprietary-codecs - Enable codecs for patent-encumbered audio a
 media-libs/mesa:vdpau - Enable the VDPAU acceleration interface for the Gallium3D Video Layer.
 media-libs/mesa:wayland - Enable support for dev-libs/wayland
 media-libs/mesa:xa - Enable the XA (X Acceleration) API for Gallium3D.
-media-libs/mesa-asahi-flatpak:2308 - Install the extension for the FDO Runtime version 23.08
-media-libs/mesa-asahi-flatpak:2408 - Install the extension for the FDO Runtime version 24.08
 sys-apps/asahi-meta:mesa - Pull in media-libs/mesa with VIDEO_CARDS="asahi"
 sys-apps/asahi-meta:sound - Pull in media-libs/asahi-audio and its dependencies
 sys-apps/asahi-nvram-meta:bless - Pull in sys-apps/asahi-bless

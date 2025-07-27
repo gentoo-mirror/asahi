@@ -1,18 +1,18 @@
 acct-group/speakersafetyd 0: speakersafetyd program group
 acct-user/speakersafetyd 0: speakersafetyd program user
 app-arch/lzfse 1.0: LZFSE compression utilities
-app-emulation/FEX 2502 2505 2506 2507 2507.1: A fast usermode x86 and x86-64 emulator for Arm64 Linux
+app-emulation/FEX 2507.1: A fast usermode x86 and x86-64 emulator for Arm64 Linux
 app-emulation/fex-rootfs-gentoo 20250425: A x86 system image used for FEX
 app-emulation/fex-rootfs-mesa-asahi 20250425: FEX rootfs overlay containing asahi mesa
 app-emulation/muvm 0.4.1: Run programs from your system in a microVM
 dev-libs/libkrun 1.11.2: A dynamic library providing Virtualization-based process isolation capabilities
-dev-libs/libkrunfw 4.9.0 4.9.0-r1: A dynamic library bundling the guest payload consumed by libkrun
+dev-libs/libkrunfw 4.10.0-r1: A dynamic library bundling the guest payload consumed by libkrun
 games-util/steam 0.0.1-r1: Steam launcher bundled with AArch64/ARM64 wrapper for Asahi Linux systems
 media-libs/alsa-ucm-conf-asahi 8: ALSA ucm configuration files for Apple silicon devices
 media-libs/asahi-audio 3.4: PipeWire/WirePlumber configuration files for Apple Silicon
 media-libs/bankstown-lv2 1.1.0-r2: A barebones, fast LV2 bass enhancement plugin
 media-libs/mesa 25.1.0-r100: OpenGL-like graphic library for Linux
-media-libs/mesa-asahi-flatpak 25.1.0_pre20250425: Asahi OpenGL Extension for Flatpak
+media-libs/mesa-asahi-flatpak 25.1.0_pre20250425-r1: Asahi OpenGL Extension for Flatpak
 media-libs/triforce-lv2 0.3.2: Minimum variance distortionless response beamformer for Apple mic arrays
 media-libs/virglrenderer 1.1.1_p202504240: library used implement a virtual 3D GPU used by qemu
 media-libs/widevine-installer 0.2: Widevine installer for AArch64 systems
@@ -22,9 +22,9 @@ sys-apps/asahi-nvram-meta 0.1: Metapackage for asahi-nvram modules
 sys-apps/asahi-scripts 20250426.1: Apple Silicon support scripts
 sys-apps/speakersafetyd 1.1.2: Speaker protection daemon for embedded Linux systems
 sys-boot/m1n1 1.4.21: Apple Silicon bootloader and experimentation playground
-sys-boot/u-boot 2024.10_p1 2025.04_p1: Asahi Linux fork of Das U-Boot
+sys-boot/u-boot 2025.04_p1: Asahi Linux fork of Das U-Boot
 sys-devel/x86_64-multilib-toolchain 14.2.0_p1 15.1.0: All-in-one x86 toolchain for packages that need this specific crosscompiler
-sys-firmware/asahi-firmware 0.7.9: Asahi FW extraction script
+sys-firmware/asahi-firmware 0.7.9-r1: Asahi FW extraction script
 sys-kernel/asahi-kernel 6.14.4_p1: Asahi Linux kernel sources
 sys-kernel/asahi-sources 6.14.8_p1 6.15.7_p1: Asahi Linux kernel sources
 virtual/dist-kernel 6.14.4_p1: Virtual to depend on any Distribution Kernel
