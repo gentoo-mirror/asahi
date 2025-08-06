@@ -1,7 +1,7 @@
 acct-group/speakersafetyd 0: speakersafetyd program group
 acct-user/speakersafetyd 0: speakersafetyd program user
 app-arch/lzfse 1.0: LZFSE compression utilities
-app-emulation/FEX 2507.1 2508: A fast usermode x86 and x86-64 emulator for Arm64 Linux
+app-emulation/FEX 2508 2508.1: A fast usermode x86 and x86-64 emulator for Arm64 Linux
 app-emulation/fex-rootfs-gentoo 20250425: A x86 system image used for FEX
 app-emulation/fex-rootfs-mesa-asahi 20250425: FEX rootfs overlay containing asahi mesa
 app-emulation/muvm 0.4.1: Run programs from your system in a microVM
@@ -19,13 +19,13 @@ media-libs/widevine-installer 0.2: Widevine installer for AArch64 systems
 sys-apps/asahi-configs 2: Asahi Linux configurations
 sys-apps/asahi-meta 2-r11: Metapackage for the Asahi support packages
 sys-apps/asahi-nvram-meta 0.1: Metapackage for asahi-nvram modules
-sys-apps/asahi-scripts 20250426.1: Apple Silicon support scripts
+sys-apps/asahi-scripts 20250426.1 20250713: Apple Silicon support scripts
 sys-apps/speakersafetyd 1.1.2: Speaker protection daemon for embedded Linux systems
 sys-boot/m1n1 1.4.21 1.5.0: Apple Silicon bootloader and experimentation playground
 sys-boot/u-boot 2025.04_p1: Asahi Linux fork of Das U-Boot
 sys-devel/x86_64-multilib-toolchain 14.2.0_p1 15.1.0: All-in-one x86 toolchain for packages that need this specific crosscompiler
 sys-firmware/asahi-firmware 0.7.9-r1: Asahi FW extraction script
 sys-kernel/asahi-kernel 6.14.4_p1: Asahi Linux kernel sources
-sys-kernel/asahi-sources 6.14.8_p1 6.15.7_p1: Asahi Linux kernel sources
+sys-kernel/asahi-sources 6.14.8_p1 6.15.7_p1 6.16.0_p2: Asahi Linux kernel sources
 virtual/dist-kernel 6.14.4_p1: Virtual to depend on any Distribution Kernel
 virtual/linux-sources 3-r6: Virtual for Linux kernel sources
