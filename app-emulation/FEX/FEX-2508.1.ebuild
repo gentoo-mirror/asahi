@@ -11,8 +11,8 @@ inherit flag-o-matic cmake toolchain-funcs llvm-r1
 DESCRIPTION="A fast usermode x86 and x86-64 emulator for Arm64 Linux"
 HOMEPAGE="https://fex-emu.com"
 
-JEMALLOC_HASH="02ca52b5fefc0ccd0d2c4eaa1d17989cdd641927"
-JEMALLOC_GLIBC_HASH="404353974e335fb771562249163e2ea62c558e7e"
+JEMALLOC_HASH="ce24593018ca5d5af7e5661ceda9744e02b59f8f"
+JEMALLOC_GLIBC_HASH="8436195ad5e1bc347d9b39743af3d29abee59f06"
 CPP_OPTPARSE_HASH="9f94388a339fcbb0bc95c17768eb786c85988f6e"
 ROBIN_MAP_HASH="d5683d9f1891e5b04e3e3b2192b5349dc8d814ea"
 
@@ -263,30 +263,6 @@ src_configure() {
 
 		strip-unsupported-flags
 	fi
-	oldpath="${PATH}"
-	use crossdev-toolchain || PATH="${BROOT}/usr/lib/x86_64-multilib-toolchain/bin:${PATH}"
-
-	local x64_cc="$(find_compiler 'x86_64*-linux-gnu-gcc' || die)"
-	local x86_cc
-	if x86_cc="$(find_compiler 'x86_64*-linux-gnu-gcc' -m32)"; then
-		x86_cc="${x86_cc} -m32"
-	else
-		x86_cc="$(find_compiler 'i?86*-linux-gnu-gcc' || die)"
-	fi
-
-	sed -i -e "s:__REPLACE_ME_WITH_C_COMPILER__:${x64_cc}:" Data/CMake/toolchain_x86_64.cmake || die
-	sed -i -e "s:__REPLACE_ME_WITH_C_COMPILER__:${x86_cc}:" Data/CMake/toolchain_x86_32.cmake || die
-	sed -i -e "s:__REPLACE_ME_WITH_CXX_COMPILER__:${x64_cc/linux-gnu-gcc/linux-gnu-g++}:" Data/CMake/toolchain_x86_64.cmake || die
-	sed -i -e "s:__REPLACE_ME_WITH_CXX_COMPILER__:${x86_cc/linux-gnu-gcc/linux-gnu-g++}:" Data/CMake/toolchain_x86_32.cmake || die
-
-	export X86_CFLAGS="$(my-test-flags-PROG ${x64_cc/%gcc/cc} c ${CFLAGS} ${LDFLAGS})"
-	export X86_CXXFLAGS="$(my-test-flags-PROG ${x64_cc/%gcc/c++} c++ ${CXXFLAGS} ${LDFLAGS})"
-	export X86_LDFLAGS="$(my-test-flags-PROG ${x64_cc/%gcc/cc} c ${LDFLAGS})"
-
-	my-filter-var X86_CFLAGS '-flto*' -fwhole-program-vtables '-fsanitize=cfi*'
-	my-filter-var X86_CXXFLAGS '-flto*' -fwhole-program-vtables '-fsanitize=cfi*'
-
-	tc-export CC CXX LD AR NM OBJDUMP RANLIB PKG_CONFIG
 
 	local mycmakeargs=(
 		-DBUILD_TESTS=False
@@ -295,19 +271,50 @@ src_configure() {
 		-DBUILD_FEXCONFIG=$(usex fexconfig)
 		-DBUILD_THUNKS=$(usex thunks)
 		-DENABLE_CLANG_THUNKS=False
-		-DX86_CFLAGS="${X86_CFLAGS}"
-		-DX86_CXXFLAGS="${X86_CXXFLAGS}"
-		-DX86_LDFLAGS="${X86_LDFLAGS}"
 	)
+
+	if use thunks; then
+		oldpath="${PATH}"
+		use crossdev-toolchain || PATH="${BROOT}/usr/lib/x86_64-multilib-toolchain/bin:${PATH}"
+		local x64_cc="$(find_compiler 'x86_64*-linux-gnu-gcc' || die)"
+		local x86_cc
+		if x86_cc="$(find_compiler 'x86_64*-linux-gnu-gcc' -m32)"; then
+			x86_cc="${x86_cc} -m32"
+		else
+			x86_cc="$(find_compiler 'i?86*-linux-gnu-gcc' || die)"
+		fi
+
+		sed -i -e "s:__REPLACE_ME_WITH_C_COMPILER__:${x64_cc}:" Data/CMake/toolchain_x86_64.cmake || die
+		sed -i -e "s:__REPLACE_ME_WITH_C_COMPILER__:${x86_cc}:" Data/CMake/toolchain_x86_32.cmake || die
+		sed -i -e "s:__REPLACE_ME_WITH_CXX_COMPILER__:${x64_cc/linux-gnu-gcc/linux-gnu-g++}:" Data/CMake/toolchain_x86_64.cmake || die
+		sed -i -e "s:__REPLACE_ME_WITH_CXX_COMPILER__:${x86_cc/linux-gnu-gcc/linux-gnu-g++}:" Data/CMake/toolchain_x86_32.cmake || die
+
+		export X86_CFLAGS="$(my-test-flags-PROG ${x64_cc/%gcc/cc} c ${CFLAGS} ${LDFLAGS})"
+		export X86_CXXFLAGS="$(my-test-flags-PROG ${x64_cc/%gcc/c++} c++ ${CXXFLAGS} ${LDFLAGS})"
+		export X86_LDFLAGS="$(my-test-flags-PROG ${x64_cc/%gcc/cc} c ${LDFLAGS})"
+
+		my-filter-var X86_CFLAGS '-flto*' -fwhole-program-vtables '-fsanitize=cfi*'
+		my-filter-var X86_CXXFLAGS '-flto*' -fwhole-program-vtables '-fsanitize=cfi*'
+		mycmakeargs+=(
+			-DX86_CFLAGS="${X86_CFLAGS}"
+			-DX86_CXXFLAGS="${X86_CXXFLAGS}"
+			-DX86_LDFLAGS="${X86_LDFLAGS}"
+		)
+
+		tc-export CC CXX LD AR NM OBJDUMP RANLIB PKG_CONFIG
+	fi
+
 	cmake_src_configure
 }
 
 src_install() {
 	cmake_src_install
 	tc-is-lto && dostrip -x /usr/lib/libFEXCore.a
-	use thunks && dostrip -x /usr/share/fex-emu/GuestThunks{,_32}/
 	rm "${ED}/usr/share/man/man1/FEX.1.gz" || die
-	PATH="${oldpath}"
+	if use thunks; then
+		dostrip -x /usr/share/fex-emu/GuestThunks{,_32}/
+		PATH="${oldpath}"
+	fi
 }
 
 pkg_postinst() {
