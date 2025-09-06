@@ -15,6 +15,7 @@ media-libs/mesa:proprietary-codecs - Enable codecs for patent-encumbered audio a
 media-libs/mesa:vdpau - Enable the VDPAU acceleration interface for the Gallium3D Video Layer.
 media-libs/mesa:wayland - Enable support for dev-libs/wayland
 media-libs/mesa:xa - Enable the XA (X Acceleration) API for Gallium3D.
+media-libs/virglrenderer:venus - Enable Venus Virtio-GPU protocol
 sys-apps/asahi-meta:mesa - Pull in media-libs/mesa with VIDEO_CARDS="asahi"
 sys-apps/asahi-meta:sound - Pull in media-libs/asahi-audio and its dependencies
 sys-apps/asahi-nvram-meta:bless - Pull in sys-apps/asahi-bless
