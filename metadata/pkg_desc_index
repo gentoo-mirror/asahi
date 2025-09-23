@@ -1,9 +1,8 @@
 acct-group/speakersafetyd 0: speakersafetyd program group
 acct-user/speakersafetyd 0: speakersafetyd program user
 app-arch/lzfse 1.0: LZFSE compression utilities
-app-emulation/FEX 2508 2508.1 2508.1-r1 2509 2509-r1: A fast usermode x86 and x86-64 emulator for Arm64 Linux
-app-emulation/fex-rootfs-gentoo 20250425 20250904 20250904-r1: A x86 system image used for FEX
-app-emulation/fex-rootfs-mesa-asahi 20250425: FEX rootfs overlay containing asahi mesa
+app-emulation/FEX 2508.1-r1 2509 2509-r1: A fast usermode x86 and x86-64 emulator for Arm64 Linux
+app-emulation/fex-rootfs-gentoo 20250904 20250904-r1: A x86 system image used for FEX
 app-emulation/muvm 0.4.1: Run programs from your system in a microVM
 dev-libs/libkrun 1.11.2: A dynamic library providing Virtualization-based process isolation capabilities
 dev-libs/libkrunfw 4.10.0-r1: A dynamic library bundling the guest payload consumed by libkrun
@@ -11,10 +10,7 @@ games-util/steam 0.0.1-r1: Steam launcher bundled with AArch64/ARM64 wrapper for
 media-libs/alsa-ucm-conf-asahi 8: ALSA ucm configuration files for Apple silicon devices
 media-libs/asahi-audio 3.4: PipeWire/WirePlumber configuration files for Apple Silicon
 media-libs/bankstown-lv2 1.1.0-r2: A barebones, fast LV2 bass enhancement plugin
-media-libs/mesa 25.1.0-r100: OpenGL-like graphic library for Linux
-media-libs/mesa-asahi-flatpak 25.1.0_pre20250425-r1: Asahi OpenGL Extension for Flatpak
 media-libs/triforce-lv2 0.3.2: Minimum variance distortionless response beamformer for Apple mic arrays
-media-libs/virglrenderer 1.1.1_p20250806 1.1.1_p202504240 1.1.1_p202508060: Library used implement a virtual 3D GPU used by qemu
 media-libs/widevine-installer 0.2: Widevine installer for AArch64 systems
 sys-apps/asahi-configs 2: Asahi Linux configurations
 sys-apps/asahi-meta 2-r11: Metapackage for the Asahi support packages
