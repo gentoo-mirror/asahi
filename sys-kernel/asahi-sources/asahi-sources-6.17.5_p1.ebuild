@@ -7,7 +7,7 @@ ETYPE="sources"
 CKV="$(ver_cut 1-3)"
 K_SECURITY_UNSUPPORTED="1"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="6"
+K_GENPATCHES_VER="7"
 K_NODRYRUN="1"
 
 RUST_MIN_VER="1.85.0"
@@ -56,13 +56,6 @@ UNIPATCH_LIST="
 	${FILESDIR}/asahi-6.8-config-gentoo-Drop-RANDSTRUCT-from-GENTOO_KERNEL_SEL.patch
 	${DISTDIR}/linux-${ASAHI_TAG}.diff
 "
-
-src_prepare() {
-	default
-
-	# remove asahi upstream set localversion, use EXTRAVERSION instead
-	rm localversion.05-asahi
-}
 
 pkg_postinst() {
 	einfo "For more information about Asahi Linux please visit ${HOMEPAGE},"
